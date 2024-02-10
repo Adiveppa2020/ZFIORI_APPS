@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>supPlant}">
+		<content>
+			<form:SimpleForm>
+				<Title text="{i18n>supplyPlantInfoMsg}" wrapping="true"></Title>
+				<Label text="{i18n>enterPlant}" required="true"></Label>
+				<Input value="" suggestionItems="{/ZPLANT_FUZZYSet}" id="idInputSupplyPlant10"
+					showSuggestion="true" filterSuggests="true" showClearIcon="true"
+					startSuggestion="0">
+					<suggestionItems>
+						<core:ListItem key="{Werks}" text="{Werks}" 
+							additionalText="{Name1}"/>
+					</suggestionItems>
+				</Input>
+			</form:SimpleForm>
+		</content>
+		<beginButton>
+			<Button  text="{i18n>plantApply}" type="Emphasized" press="onPressSupplyPlantToListItems"/>
+		</beginButton>
+		<endButton>
+			<Button  text="{i18n>closeBtn}" type="Ghost" press="onPressCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

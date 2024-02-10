@@ -1,0 +1,88 @@
+<mvc:View controllerName="zprap.zfprap.controller.PRDetailsListPage"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="idPRDetailsPage" title="{i18n>title}"
+        showNavButton="true" navButtonTooltip="Back" navButtonPress="onBackButtonNavToPRListPagePress">
+        <content>
+            <Table id="idPRDetailsListTable"
+                items="{/ZLineSet}"
+                sticky="ColumnHeaders,HeaderToolbar" growing="true" growingThreshold="50"
+                growingScrollToLoad="true" updateFinished="updateFinishedTable"
+                class="displayFlex" mode="SingleSelectLeft" selectionChange="onSelectPRDetailsList">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="{i18n>prDetails}({localModel>/lineTableCount})" level="H2"/>
+                            <ToolbarSpacer />
+                            <Button text="{i18n>stockDetailBtn}" id="idStockDetailBtn" type="Emphasized"
+                                press="onPressStockView"></Button>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>materials}" />
+                    </Column>
+                    <Column	minScreenWidth="Phone">
+                        <Text text="{i18n>prNo}" />
+                    </Column>
+                    <Column minScreenWidth="Phone">
+                        <Text text="{i18n>approvedQty}" />
+                    </Column>
+                    <Column	minScreenWidth="Phone">
+                        <Text text="{i18n>supplyPlant}" />
+                    </Column>
+                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>purchaseReqItem}" />
+                    </Column>
+                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>reqPlantName}" />
+                    </Column>
+                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>PRDate}" />
+                    </Column>
+                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>deliveryPriority}" />
+                    </Column>
+                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>requiredQuantity}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" >
+                        <cells>
+                            <Text text="{MATNR}" />
+                            <Text text="{BANFN}" />
+                            <Input value="{A_MENGE}" change="onChangeApprovedQty($event,'/A_MENGE')"/>
+                            <Input value="{RESWK}" change="onChangeApprovedQty($event,'/RESWK')"/>
+                            <Text text="{BNFPO}"/>
+                            <!-- Purchase Req Item  -->
+                            <Text text="{R_PLANT}"/>
+                            <!-- Req Plant Name -->
+                            <Text text="{BADAT}"/>
+                            <!-- PR Date  -->
+                            <Text text="{DELPRIOR}"/>
+                            <!-- Delivery Priority  -->
+                            <Text text="{MENGE}"/>
+                            <!-- Required Quantity  -->
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <Button type="Attention" text="{i18n>supPlant}" 
+                        enabled="{localModel>/enableListPRDetailsActions}"
+                        press="onPressSupplyPlant"/>
+                <ToolbarSpacer/>
+                <Button type="Success" text="{i18n>approve}" 
+                        enabled="{localModel>/enableListPRDetailsActions}"
+                        press="onPressApproveOrRejectLineItem($event, 'Accept')"/>
+                <Button type="Negative" text="{i18n>reject}" 
+                        enabled="{localModel>/enableListPRDetailsActions}"
+                        press="onPressApproveOrRejectLineItem($event, 'Reject')"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

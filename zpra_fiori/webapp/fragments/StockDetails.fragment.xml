@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>material}: {localModel>/stockMaterial}" contentHeight="90%">
+		<content>
+			<Table id="idStackDetailsDialog" noDataText="No Data Found"
+				items="{/ZSTOCK_QTYSet}" updateFinished="updateFinishedStockTable"
+				headerText="{i18n>stockDetailList}({localModel>/stockTableCount})"
+				class="displayFlex" sticky="ColumnHeaders,HeaderToolbar">
+				<ColumnListItem vAlign="Middle" class="displayFlex">
+					<cells>
+						<Text text="{WERKS}" />
+						<Text text="{MENGE}" />
+						<Text text="{A_MENGE}" />
+						<Text text="{B_MENGE}" />
+						<Text text="{NAME1}"/>
+					</cells>
+				</ColumnListItem>
+				<columns>
+					<Column>
+						<header>
+							<Text text="{i18n>supplyPlant}" />
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="{i18n>stock}" />
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="{i18n>allocatedStock}" />
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="{i18n>balanceStock}" />
+						</header>
+					</Column>
+					<Column class="displayFlex" minScreenWidth="Desktop" demandPopin="true">
+						<header>
+							<Text text="{i18n>plantName}" />
+						</header>
+					</Column>
+				</columns>
+			</Table>
+		</content>
+		<endButton>
+		  <Button  text="{i18n>closeBtn}" type="Emphasized" press="onPressCloseDialog"/>
+		</endButton>
+	  </Dialog>
+</core:FragmentDefinition>

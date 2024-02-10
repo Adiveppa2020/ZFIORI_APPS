@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: zprap.zfprap
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://fioridev.sap.elanlimited.com/sap/bc/ui5_ui5/sap/arsrvc_upb_admn/main.html?scope=CUST&sap-client=100&sap-language=EN%22#/Catalog/X-SAP-UI2-CATALOGPAGE:zoo_staus
+          client: "100"
+        app:
+          name: ZF_COL
+          package: zsd
+          transport: DS4K902656

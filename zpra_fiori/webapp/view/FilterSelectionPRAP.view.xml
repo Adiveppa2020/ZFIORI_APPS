@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.denpro.sd.document.controller.FilterSelectionPRAP"
+<mvc:View controllerName="zprap.zfprap.controller.FilterSelectionPRAP"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
     xmlns="sap.m" xmlns:core="sap.ui.core"
@@ -26,8 +26,25 @@
                         value="{localData>/filterValues/purchaseReqNo}"
                         change="onChangeInputValue($event, '/filterValues/purchaseReqNo')"/>
                     <Label text="{i18n>plant}" />
-                    <DateRangeSelection />
+                    <Input id="idPlantInput"
+                        showValueHelp="true" valueHelpRequest="onInputMaterialsValueHelpRequest"
+                        customData:dialogName="PlantValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'WERKS', prop2: 'NAME1'}"
+                        value="{localData>/filterValues/plant}"
+                        change="onChangeInputValue($event, '/filterValues/plant')"/>
+                    <Label text="{i18n>releaseCode}" required="true"/>
+                    <ComboBox id="idReleaseCodeInput" items="{path: '/ZREL_CODE_SRCHSet'}" showSecondaryValues= "true"
+                        selectedKey="{localData>/filterValues/releaseCode}"
+                        change="onChangeInputValueComboBox($event, '/filterValues/releaseCode')">
+                        <core:ListItem key="{FRGCO}" text="{FRGCO}" additionalText = "{FRGCT}"/>
+                    </ComboBox>
 
+                    <Label text="{i18n>documentType}" />
+                    <ComboBox id="idDocType" items="{path: '/ZDOC_TYPE_SRCHSet'}" showSecondaryValues= "true"
+                        selectedKey="{localData>/filterValues/docType}"
+                        change="onChangeInputValueComboBox($event, '/filterValues/docType')">
+                        <core:ListItem key="{BSART}" text="{BSART}" additionalText = "{BATXT}"/>
+                    </ComboBox>
                 </f:content>
             </f:SimpleForm>
 	    </VBox>

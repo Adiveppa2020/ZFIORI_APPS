@@ -1,0 +1,59 @@
+<mvc:View controllerName="com.denpro.sd.document.controller.FilterSelectionPRAP"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+    <Page id="idSelectionPage" title="{i18n>title}">
+        <content>
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <Label text="{i18n>material}" />
+                    <Input showValueHelp="true" valueHelpRequest="onInputMaterialsValueHelpRequest"
+                        id="idMaterialInput" customData:dialogName="MaterialValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Material', prop2: 'MaterialDescription'}"
+                        value="{localData>/filterValues/material}"
+                        change="onChangeInputValue($event, '/filterValues/material')">
+                    </Input>
+                    <Label text="{i18n>purchaseReqNo}" />
+                    <Input id="idPurchaseReqNoInput"
+                        showValueHelp="true" valueHelpRequest="onInputMaterialsValueHelpRequest"
+                        customData:dialogName="PRNOValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Banfn', prop2: 'Bnfpo'}"
+                        value="{localData>/filterValues/purchaseReqNo}"
+                        change="onChangeInputValue($event, '/filterValues/purchaseReqNo')"/>
+                    <Label text="{i18n>plant}" />
+                    <Input id="idPlantInput"
+                        showValueHelp="true" valueHelpRequest="onInputMaterialsValueHelpRequest"
+                        customData:dialogName="PlantValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'WERKS', prop2: 'NAME1'}"
+                        value="{localData>/filterValues/plant}"
+                        change="onChangeInputValue($event, '/filterValues/plant')"/>
+                    <Label text="{i18n>releaseCode}" required="true"/>
+                    <ComboBox id="idReleaseCodeInput" items="{path: '/ZREL_CODE_SRCHSet'}" showSecondaryValues= "true"
+                        selectedKey="{localData>/filterValues/releaseCode}"
+                        change="onChangeInputValueComboBox($event, '/filterValues/releaseCode')">
+                        <core:ListItem key="{FRGCO}" text="{FRGCO}" additionalText = "{FRGCT}"/>
+                    </ComboBox>
+
+                    <Label text="{i18n>documentType}" />
+                    <ComboBox id="idDocType" items="{path: '/ZDOC_TYPE_SRCHSet'}" showSecondaryValues= "true"
+                        selectedKey="{localData>/filterValues/docType}"
+                        change="onChangeInputValueComboBox($event, '/filterValues/docType')">
+                        <core:ListItem key="{BSART}" text="{BSART}" additionalText = "{BATXT}"/>
+                    </ComboBox>
+                </f:content>
+            </f:SimpleForm>
+	    </VBox>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="Search" press="onSearchButtonNavToListPress"/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

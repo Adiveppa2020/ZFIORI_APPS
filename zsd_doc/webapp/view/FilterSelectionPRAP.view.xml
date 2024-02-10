@@ -25,26 +25,9 @@
                         customData:FilterProperty="{prop1: 'Banfn', prop2: 'Bnfpo'}"
                         value="{localData>/filterValues/purchaseReqNo}"
                         change="onChangeInputValue($event, '/filterValues/purchaseReqNo')"/>
-                    <Label text="{i18n>plant}" />
-                    <Input id="idPlantInput"
-                        showValueHelp="true" valueHelpRequest="onInputMaterialsValueHelpRequest"
-                        customData:dialogName="PlantValueHelpDialog"
-                        customData:FilterProperty="{prop1: 'WERKS', prop2: 'NAME1'}"
-                        value="{localData>/filterValues/plant}"
-                        change="onChangeInputValue($event, '/filterValues/plant')"/>
-                    <Label text="{i18n>releaseCode}" required="true"/>
-                    <ComboBox id="idReleaseCodeInput" items="{path: '/ZREL_CODE_SRCHSet'}" showSecondaryValues= "true"
-                        selectedKey="{localData>/filterValues/releaseCode}"
-                        change="onChangeInputValueComboBox($event, '/filterValues/releaseCode')">
-                        <core:ListItem key="{FRGCO}" text="{FRGCO}" additionalText = "{FRGCT}"/>
-                    </ComboBox>
+                    <Label text="{i18n>plant}" />|
+                    <DateRangeSelection />
 
-                    <Label text="{i18n>documentType}" />
-                    <ComboBox id="idDocType" items="{path: '/ZDOC_TYPE_SRCHSet'}" showSecondaryValues= "true"
-                        selectedKey="{localData>/filterValues/docType}"
-                        change="onChangeInputValueComboBox($event, '/filterValues/docType')">
-                        <core:ListItem key="{BSART}" text="{BSART}" additionalText = "{BATXT}"/>
-                    </ComboBox>
                 </f:content>
             </f:SimpleForm>
 	    </VBox>

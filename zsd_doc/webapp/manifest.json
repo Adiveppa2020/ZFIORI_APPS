@@ -104,13 +104,6 @@
           "target": [
             "prlistpage"
           ]
-        },
-        {
-          "pattern": "prdetails/{purchaseReqNo}/param:?query:",
-          "name": "prdetailslistpage",
-          "target": [
-            "prdetailslistpage"
-          ]
         }
       ],
       "targets": {
@@ -124,11 +117,6 @@
         "prlistpage": {
           "viewName": "PRListPage",
           "viewId": "PRListPage",
-          "title": "{i18n>title}"
-        },
-        "prdetailslistpage": {
-          "viewName": "PRDetailsListPage",
-          "viewId": "PRDetailsListPage",
           "title": "{i18n>title}"
         }
       }

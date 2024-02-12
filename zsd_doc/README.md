@@ -9,7 +9,7 @@
 |**Service Type**<br>None|
 |**Service URL**<br>N/A
 |**Module Name**<br>zsd_doc|
-|**Application Title**<br>Material Document Approval|
+|**Application Title**<br>Outbound Delivery Release Process|
 |**Namespace**<br>zprap|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.114.9|
@@ -19,7 +19,7 @@
 
 ## zsd_doc
 
-Material Document Approval Process
+Outbound Delivery Release Process Process
 
 ### Starting the generated app
 

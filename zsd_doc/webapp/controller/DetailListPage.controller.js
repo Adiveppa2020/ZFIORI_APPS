@@ -7,11 +7,11 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return Controller.extend("com.denpro.sd.document.controller.PRListPage", {
+	return Controller.extend("com.denpro.sd.document.controller.DetailListPage", {
 
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("prlistpage").attachMatched(function (oEvent) {
+			oRouter.getRoute("detailslistpage").attachMatched(function (oEvent) {
 				this.loadData(oEvent.getParameter("arguments"));
 			}, this);
 			this.supplyPlant = "";
@@ -20,27 +20,15 @@ sap.ui.define([
 		loadData: async function (param) {
 			const oLocalModel = this.getOwnerComponent().getModel("localModel");
 			oLocalModel.setProperty("/enableListPRActions", false);
-			this.releaseCode = param.releaseCode;
+			this.salesDocument = param.salesDocument;
 			const aFilter = Utils.getFilterArray([
 				{
-					sPath: "MATNR",
-					sValue: param["?query"].material
+					sPath: "Vbeln",
+					sValue: param.salesDocument
 				},
 				{
-					sPath: "BANFN",
-					sValue: param["?query"].purchaseReqNo
-				},
-				{
-					sPath: "WERKS",
-					sValue: param["?query"].plant
-				},
-				{
-					sPath: "FRGZU",
-					sValue: param.releaseCode
-				},
-				{
-					sPath: "BSART",
-					sValue: param["?query"].docType
+					sPath: "Ernam",
+					sValue: param["?query"].createdBy
 				}
 			]);
 			const oView = this.getView();

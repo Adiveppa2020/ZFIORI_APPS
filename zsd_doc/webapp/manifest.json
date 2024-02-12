@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZMM_DEEP_ODATA_SRV/",
+        "uri": "/sap/opu/odata/sap/ZSD_ODATA_SRV/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0"
@@ -99,10 +99,10 @@
           ]
         },
         {
-          "pattern": "prlist/{releaseCode}/param:?query:",
-          "name": "prlistpage",
+          "pattern": "detailslist/{salesDocument}/param:?query:",
+          "name": "detailslistpage",
           "target": [
-            "prlistpage"
+            "detailslistpage"
           ]
         }
       ],
@@ -114,9 +114,9 @@
           "viewId": "FilterSelectionPRAP",
           "viewName": "FilterSelectionPRAP"
         },
-        "prlistpage": {
-          "viewName": "PRListPage",
-          "viewId": "PRListPage",
+        "detailslistpage": {
+          "viewName": "DetailListPage",
+          "viewId": "DetailListPage",
           "title": "{i18n>title}"
         }
       }

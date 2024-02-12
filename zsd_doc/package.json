@@ -2,7 +2,7 @@
     "name": "zf_prap",
     "version": "0.0.1",
     "private": true,
-    "description": "Material Document Approval Process",
+    "description": "Outbound Delivery Release Process Process",
     "keywords": [
         "ui5",
         "openui5",

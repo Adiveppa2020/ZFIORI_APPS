@@ -6,7 +6,7 @@ sap.ui.define([
     "use strict";
 
     return {
-        onInputMaterialsValueHelpRequest: function (oEvent) {
+        onInputCommonValueHelpRequest: function (oEvent) {
             var sInputValue = oEvent.getSource().getValue(),
                 oView = this.getView();
             const sFragmentName = "com.denpro.sd.document.fragments." + oEvent.getSource().getCustomData()[0].getValue();

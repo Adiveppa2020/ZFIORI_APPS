@@ -39,7 +39,7 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "Material Document Approval",
+									"title": "Outbound Delivery Release Process",
 									"targetURL": "#zprapzfprap-display"
 								}
 							}]
@@ -54,8 +54,8 @@ sap.ui.define([
 							"zprapzfprap-display": {
 								"semanticObject": "zprapzfprap",
 								"action": "display",
-								"description": "Material Document Approval Process",
-								"title": "Material Document Approval",
+								"description": "Outbound Delivery Release Process Process",
+								"title": "Outbound Delivery Release Process",
 								"signature": {
 									"parameters": {}
 								},

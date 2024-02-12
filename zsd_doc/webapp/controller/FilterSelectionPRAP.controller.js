@@ -32,22 +32,18 @@ sap.ui.define([
             onSearchButtonNavToListPress: function () {
                 if (Utils.checkMandatoryParams.call(this)) {
                     const oView = this.getView();
-                    const sRC = this.byId("idReleaseCodeInput").getSelectedKey() || oView.byId("idReleaseCodeInput").getValue();
-                    const sDT = this.byId("idDocType").getSelectedKey() || oView.byId("idDocType").getValue();
-                    this.getRouter().navTo("prlistpage", {
-                        releaseCode: sRC,
+                    const sSalesDoc = oView.byId("idSalesDocumentInput").getValue();
+                    this.getRouter().navTo("detailslistpage", {
+                        salesDocument: sSalesDoc,
                         "?query": {
-                            plant: oView.byId("idPlantInput").getValue(),
-                            material: oView.byId("idMaterialInput").getValue(),
-                            purchaseReqNo: oView.byId("idPurchaseReqNoInput").getValue(),
-                            docType: sDT
+                            createdBy: oView.byId("idCreatedByInput").getValue()
                         }
                     });
                 }
             },
 
-            onInputMaterialsValueHelpRequest: function (oEvent) {
-                ValueHelpFilter.onInputMaterialsValueHelpRequest.call(this, oEvent);
+            onInputCommonValueHelpRequest: function (oEvent) {
+                ValueHelpFilter.onInputCommonValueHelpRequest.call(this, oEvent);
             },
 
             onValueHelpSearch: function (oEvent) {

@@ -23,11 +23,8 @@ sap.ui.define([
             createLocalModel: function () {
                 return new JSONModel({
                     "filterValues": {
-                        "material": "",
-                        "purchaseReqNo": "",
-                        "plant": "",
-                        "releaseCode": "",
-                        "docType": ""
+                        "Vbeln": "",
+                        "Ernam": ""
                     },
                     headTableCount: 0,
                     lineTableCount: 0,

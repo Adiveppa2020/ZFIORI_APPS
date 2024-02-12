@@ -11,21 +11,21 @@
                 layout="ResponsiveGridLayout"
                 singleContainerFullSize="false" >
                 <f:content>
-                    <Label text="{i18n>material}" />
-                    <Input showValueHelp="true" valueHelpRequest="onInputMaterialsValueHelpRequest"
-                        id="idMaterialInput" customData:dialogName="MaterialValueHelpDialog"
-                        customData:FilterProperty="{prop1: 'Material', prop2: 'MaterialDescription'}"
-                        value="{localData>/filterValues/material}"
-                        change="onChangeInputValue($event, '/filterValues/material')">
+                    <Label text="{i18n>deliveryNumber}" required="true" />
+                    <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        id="idSalesDocumentInput" customData:dialogName="DeliveryNumberValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
+                        value="{localData>/filterValues/Vbeln}"
+                        change="onChangeInputValue($event, '/filterValues/Vbeln')">
                     </Input>
-                    <Label text="{i18n>purchaseReqNo}" />
-                    <Input id="idPurchaseReqNoInput"
-                        showValueHelp="true" valueHelpRequest="onInputMaterialsValueHelpRequest"
-                        customData:dialogName="PRNOValueHelpDialog"
-                        customData:FilterProperty="{prop1: 'Banfn', prop2: 'Bnfpo'}"
-                        value="{localData>/filterValues/purchaseReqNo}"
-                        change="onChangeInputValue($event, '/filterValues/purchaseReqNo')"/>
-                    <Label text="{i18n>plant}" />
+                    <Label text="{i18n>createdBy}" />
+                    <Input id="idCreatedByInput"
+                        showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        customData:dialogName="CreatedByValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Ernam', prop2: 'Ernam'}"
+                        value="{localData>/filterValues/Ernam}"
+                        change="onChangeInputValue($event, '/filterValues/Ernam')"/>
+                    <Label text="{i18n>createdOn}" />
                     <DateRangeSelection />
 
                 </f:content>

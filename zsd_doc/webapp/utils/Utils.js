@@ -11,11 +11,10 @@ sap.ui.define([
     }
 
     function checkInputValue(oView) {
-        let sInputlValue = oView.byId("idMaterialInput").getValue();
+        let sInputlValue = oView.byId("idSalesDocumentInput").getValue();
         let message = "";
-        sInputlValue = oView.byId("idReleaseCodeInput").getValue();
         if (!sInputlValue) {
-            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "releaseCode"));
+            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "deliveryNumber"));
             return {
                 error: true,
                 message: message

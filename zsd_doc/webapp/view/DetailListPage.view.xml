@@ -1,0 +1,79 @@
+<mvc:View controllerName="com.denpro.sd.document.controller.DetailListPage"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Page id="idListPage" title="{i18n>title}">
+        <content>
+            <Table id="idPRListTable" mode="MultiSelect"
+                multiSelectMode="ClearAll"
+                items="{path: '/zdelivery_detailSet'}"
+                sticky="ColumnHeaders,HeaderToolbar" growing="true" growingThreshold="20"
+                growingScrollToLoad="true"
+                selectionChange="onSelectPRList" updateFinished="updateFinishedTable" 
+                class="displayFlex"> 
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="{i18n>OutboundDelivery}({localModel>/headTableCount})" level="H2"/>
+                            <ToolbarSpacer />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>salesDocument}" />
+                    </Column>
+                    <Column	minScreenWidth="Phone">
+                        <Text text="{i18n>createdBy}" />
+                    </Column>
+                    <Column minScreenWidth="Phone">
+                        <Text text="{i18n>date}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>Name1}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>CredLimitUsedPC}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>Creditvalue}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>CreditLimit}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>PaytTerms}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>Receivables}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" id="idColumnListItem">
+                        <cells>
+                            <Text text="{Vbeln}" />
+                            <Text text="{Ernam}" />
+                            <Text text="{Erdat}" />
+                            <Text text="{Name1}" />
+                            <Text text="{Klprz}" />
+                            <Text text="{Kwkkc}" />
+                            <Text text="{Klimk}" />
+                            <Text text="{Zterm}" />
+                            <Text text="{Skfor}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Success" text="{i18n>approve}" 
+                    enabled="{localModel>/enableListPRActions}"
+                    press="onPressApproveOrRejectHeaderItem($event, 'Accept')"/>
+				<Button type="Negative" text="{i18n>reject}" 
+                    enabled="{localModel>/enableListPRActions}"
+                    press="onPressApproveOrRejectHeaderItem($event, 'Reject')"/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

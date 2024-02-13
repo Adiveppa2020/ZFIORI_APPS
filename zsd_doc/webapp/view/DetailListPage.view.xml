@@ -1,7 +1,7 @@
 <mvc:View controllerName="com.denpro.sd.document.controller.DetailListPage"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-    <Page id="idListPage" title="{i18n>title}">
+    <Page id="idListPage" showHeader="false">
         <content>
             <Table id="idPRListTable" mode="MultiSelect"
                 multiSelectMode="ClearAll"

@@ -24,6 +24,23 @@ sap.ui.define([
                 return UIComponent.getRouterFor(this);
             },
 
+            getCreatedOnFilterDate: function () {
+                function addZero (iMonth) {
+                    if (iMonth < 10) {
+                        return "0" + iMonth;
+                    }
+                    return iMonth;
+                }
+                const oFromDate = this.byId("idCreatedOnDateRange").getFrom();
+                const oToDate = this.byId("idCreatedOnDateRange").getTo();
+                const oDateRange = {from: "", to: ""};
+                if (oFromDate && oToDate) {
+                    oDateRange.from = oFromDate.getFullYear() + addZero(oFromDate.getMonth() + 1) + addZero(oFromDate.getDate());
+                    oDateRange.to = oToDate.getFullYear() + addZero(oToDate.getMonth() + 1) + addZero(oToDate.getDate());
+                }
+                return oDateRange;
+            },
+
             /**
              * Shows the selected item on the object page
              * @param {sap.m.ObjectListItem} oItem selected Item
@@ -33,11 +50,14 @@ sap.ui.define([
                 if (Utils.checkMandatoryParams.call(this)) {
                     const oView = this.getView();
                     const sSalesDoc = oView.byId("idSalesDocumentInput").getValue();
+                    const oDateRange = this.getCreatedOnFilterDate();
                     this.getRouter().navTo("detailslistpage", {
                         salesDocument: "SD",
                         "?query": {
                             createdBy: oView.byId("idCreatedByInput").getValue(),
-                            salesDocument: sSalesDoc
+                            salesDocument: sSalesDoc,
+                            fromDate: oDateRange.from,
+                            toDate: oDateRange.to
                         }
                     });
                 }

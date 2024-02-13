@@ -20,7 +20,7 @@ sap.ui.define([
 		loadData: async function (param) {
 			const oLocalModel = this.getOwnerComponent().getModel("localModel");
 			oLocalModel.setProperty("/enableListPRActions", false);
-			this.salesDocument =  param["?query"].salesDocument;
+			this.salesDocument = param["?query"].salesDocument;
 			const aFilter = Utils.getFilterArray([
 				{
 					sPath: "Vbeln",
@@ -31,9 +31,16 @@ sap.ui.define([
 					sValue: param["?query"].createdBy
 				}
 			]);
+			const oDateFilter = Utils.getDateFilter({
+				sPath: "Erdat",
+				FromDate: param["?query"].fromDate,
+				ToDate: param["?query"].toDate
+			});
+			if (oDateFilter) {
+				aFilter.push(oDateFilter);
+			}
 			const oView = this.getView();
 			oView.byId("idPRListTable").getBinding("items").filter(aFilter);
-			this.supplyPlant = "";
 		},
 
 		onDetailsButtonNavToPRdetailsPagePress: function () {
@@ -67,23 +74,6 @@ sap.ui.define([
 			Utils.updateActionEnable.call(this, aSelectedContext);
 			if (this.supplyPlant) {
 				Utils.updateSupplyPlantToHeadList.call(this, this.supplyPlant);
-			}
-		},
-
-		onPressStockView: async function () {
-			const oView = this.getView();
-			const aSelectedContext = oView.byId("idPRListTable").getSelectedContexts();
-			if (aSelectedContext && aSelectedContext.length === 1) {
-				const oContext = aSelectedContext[0].getObject();
-				const aFilter = Utils.getFilterArray([
-					{
-						sPath: "MATNR",
-						sValue: oContext.MATNR || ""
-					}
-				]);
-				Utils.openStoackDetailsFragment.call(this, aFilter);
-			} else {
-				Utils.displayErrorMessagePopup(Utils.getI18nText(oView, "errorMessageMultiSelect"));
 			}
 		},
 

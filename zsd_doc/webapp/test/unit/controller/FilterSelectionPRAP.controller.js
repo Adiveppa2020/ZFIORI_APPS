@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"zprap/zf_prap/controller/FilterSelectionPRAP.controller"
+	"com/denpro/sd/document/controller/FilterSelectionPRAP.controller"
 ], function (Controller) {
 	"use strict";
 

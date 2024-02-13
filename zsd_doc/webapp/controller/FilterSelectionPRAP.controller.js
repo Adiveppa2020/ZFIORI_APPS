@@ -34,9 +34,10 @@ sap.ui.define([
                     const oView = this.getView();
                     const sSalesDoc = oView.byId("idSalesDocumentInput").getValue();
                     this.getRouter().navTo("detailslistpage", {
-                        salesDocument: sSalesDoc,
+                        salesDocument: "SD",
                         "?query": {
-                            createdBy: oView.byId("idCreatedByInput").getValue()
+                            createdBy: oView.byId("idCreatedByInput").getValue(),
+                            salesDocument: sSalesDoc
                         }
                     });
                 }

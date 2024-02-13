@@ -11,15 +11,15 @@ sap.ui.define([
     }
 
     function checkInputValue(oView) {
-        let sInputlValue = oView.byId("idSalesDocumentInput").getValue();
-        let message = "";
-        if (!sInputlValue) {
-            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "deliveryNumber"));
-            return {
-                error: true,
-                message: message
-            };
-        }
+        // let sInputlValue = oView.byId("idSalesDocumentInput").getValue();
+        // let message = "";
+        // if (!sInputlValue) {
+        //     message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "deliveryNumber"));
+        //     return {
+        //         error: true,
+        //         message: message
+        //     };
+        // }
         return { error: false };
     }
 

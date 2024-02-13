@@ -20,11 +20,11 @@ sap.ui.define([
 		loadData: async function (param) {
 			const oLocalModel = this.getOwnerComponent().getModel("localModel");
 			oLocalModel.setProperty("/enableListPRActions", false);
-			this.salesDocument = param.salesDocument;
+			this.salesDocument =  param["?query"].salesDocument;
 			const aFilter = Utils.getFilterArray([
 				{
 					sPath: "Vbeln",
-					sValue: param.salesDocument
+					sValue: param["?query"].salesDocument
 				},
 				{
 					sPath: "Ernam",

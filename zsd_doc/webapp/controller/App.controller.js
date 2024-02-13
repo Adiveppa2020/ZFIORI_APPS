@@ -61,9 +61,14 @@ sap.ui.define(
               const sValue = oEvent.getSource().getValue();
               const oContext = oEvent.getSource().getBinding("value").getContext() || {};
         oContext.getModel().setProperty(oContext.getPath() + sProperty, sValue);
-      }
-  
+      },
 
+      dateConversion: function (inputDate) {
+        if (inputDate && inputDate.length === 8) {
+          return inputDate.substr(0, 4) + "-" + inputDate.substr(4, 2) + "-" + inputDate.substr(6, 2);
+        }
+        return inputDate;
+      }
 
     });
   }

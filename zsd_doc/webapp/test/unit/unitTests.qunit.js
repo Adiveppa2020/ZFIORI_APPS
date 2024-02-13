@@ -5,7 +5,7 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"zprap/zf_prap/test/unit/AllTests"
+		"com/denpro/sd/document/test/unit/AllTests"
 	], function () {
 		QUnit.start();
 	});

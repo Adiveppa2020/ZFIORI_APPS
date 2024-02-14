@@ -20,7 +20,7 @@
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>
-                    <Column>
+                    <Column minScreenWidth="Phone">
                         <Text text="{i18n>materials}" />
                     </Column>
                     <Column	minScreenWidth="Phone">
@@ -33,7 +33,13 @@
                         <Text text="{i18n>supplyPlant}" />
                     </Column>
                     <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>requiredQuantity}" />
+                    </Column>
+                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>purchaseReqItem}" />
+                    </Column>
+                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>reqPlant}" />
                     </Column>
                     <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>reqPlantName}" />
@@ -44,9 +50,6 @@
                     <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>deliveryPriority}" />
                     </Column>
-                    <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>requiredQuantity}" />
-                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem vAlign="Middle" >
@@ -55,16 +58,18 @@
                             <Text text="{BANFN}" />
                             <Input value="{A_MENGE}" change="onChangeApprovedQty($event,'/A_MENGE')"/>
                             <Input value="{RESWK}" change="onChangeApprovedQty($event,'/RESWK')"/>
+                            <Text text="{MENGE}"/>
+                            <!-- Required Quantity  -->
                             <Text text="{BNFPO}"/>
                             <!-- Purchase Req Item  -->
+                            <Text text="{WERKS}"/>
+                            <!-- Req Plant -->
                             <Text text="{R_PLANT}"/>
                             <!-- Req Plant Name -->
-                            <Text text="{BADAT}"/>
+                            <Text text="{path: 'BADAT', formatter:'.dateConversion'}"/>
                             <!-- PR Date  -->
                             <Text text="{DELPRIOR}"/>
                             <!-- Delivery Priority  -->
-                            <Text text="{MENGE}"/>
-                            <!-- Required Quantity  -->
                         </cells>
                     </ColumnListItem>
                 </items>

@@ -38,7 +38,7 @@
                         <cells>
                             <Text text="{MATNR}" />
                             <Text text="{BANFN}" />
-                            <Input value="{A_MENGE}" editable="false"/>
+                            <Input value="{A_MENGE}" change="onChangeApprovedQty($event,'/A_MENGE')"/>
                             <Input value="{RESWK}" change="onChangeApprovedQty($event,'/RESWK')"/>
                         </cells>
                     </ColumnListItem>

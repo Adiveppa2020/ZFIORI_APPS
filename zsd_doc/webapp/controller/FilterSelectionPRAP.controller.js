@@ -35,8 +35,10 @@ sap.ui.define([
                 const oToDate = this.byId("idCreatedOnDateRange").getTo();
                 const oDateRange = {from: "", to: ""};
                 if (oFromDate && oToDate) {
-                    oDateRange.from = oFromDate.getFullYear() + addZero(oFromDate.getMonth() + 1) + addZero(oFromDate.getDate());
-                    oDateRange.to = oToDate.getFullYear() + addZero(oToDate.getMonth() + 1) + addZero(oToDate.getDate());
+                    let yyyy = oFromDate.getFullYear();
+                    oDateRange.from = yyyy.toString() + addZero(oFromDate.getMonth() + 1) + addZero(oFromDate.getDate());
+                    yyyy = oToDate.getFullYear();
+                    oDateRange.to = yyyy.toString() + addZero(oToDate.getMonth() + 1) + addZero(oToDate.getDate());
                 }
                 return oDateRange;
             },

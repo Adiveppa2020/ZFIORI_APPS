@@ -3,8 +3,8 @@
 	<SelectDialog id="idCreatedByItemsDialog" title="{i18n>createdByItems}"	items="{/zname_fuzzySet}"
 		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/Ernam')" 
 		cancel=".onValueHelpClose($event, '/filterValues/Ernam')"
-		customData:FilterProperty="{prop1: 'Ernam', prop2: 'Ernam'}"
+		customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
 		customData:inputId="idCreatedByInput">
-		<StandardListItem title="{Ernam}" id="idCreatedByListItem"  />
+		<StandardListItem title="{Bname}" description="{NameText}" id="idCreatedByListItem"  />
 	</SelectDialog>
 </core:FragmentDefinition>

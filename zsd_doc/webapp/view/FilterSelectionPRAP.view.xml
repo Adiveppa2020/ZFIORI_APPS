@@ -22,7 +22,7 @@
                     <Input id="idCreatedByInput"
                         showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
                         customData:dialogName="CreatedByValueHelpDialog"
-                        customData:FilterProperty="{prop1: 'Ernam', prop2: 'Ernam'}"
+                        customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
                         value="{localData>/filterValues/Ernam}"
                         change="onChangeInputValue($event, '/filterValues/Ernam')"/>
                     <Label text="{i18n>createdOn}" required="true" />
@@ -35,7 +35,7 @@
         <footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>
-				<Button type="Emphasized" text="Search" press="onSearchButtonNavToListPress"/>
+				<Button type="Emphasized" text="{i18n>search}" press="onSearchButtonNavToListPress"/>
 			</OverflowToolbar>
 		</footer>
     </Page>

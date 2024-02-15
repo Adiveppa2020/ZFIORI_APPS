@@ -41,8 +41,8 @@ sap.ui.define([
                     {
                         method: "POST",
                         groupId: "GID",
-                        changeSetId: "changeSetId" + oPayload.MATNR,
-                        success: function (oData, response) {
+                        changeSetId: "changeSetId" + oPayload.Vbeln,
+                        success: function (oData) {
                             resolve(oData);
                         },
                         error: function (oError) {
@@ -140,7 +140,7 @@ sap.ui.define([
                 aSelectedContext.forEach(function (oContext) {
                     oPayload = oContext.getObject();
                     delete oPayload.__metadata;
-                    oPayload.ACTION = sAction.toUpperCase();
+                    oPayload.Action = sAction.toUpperCase();
                     aPayload.push(oPayload);
                 });
             } else {

@@ -117,8 +117,9 @@ sap.ui.define([
 				oTable.getBinding("items").refresh();
 			} catch (error) {
 				oView.setBusy(false);
-				if (error && !error.popup) {
-					Utils.displayErrorMessagePopup("Error while updating PR List - " + error?.message);
+				if ((typeof error === "object") && !error.popup) {
+					const sErrorMsg = error && (error.responseText || "Error while updating List - " + error.message);
+					Utils.displayErrorMessagePopup(sErrorMsg);
 				}
 			}
 		}

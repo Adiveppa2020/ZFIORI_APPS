@@ -42,8 +42,8 @@ sap.ui.define([
                     {
                         method: "POST",
                         groupId: "GID",
-                        changeSetId: "changeSetId" + oPayload.MATNR,
-                        success: function (oData, response) {
+                        changeSetId: "changeSetId" + oPayload.MATNR + oPayload.BANFN + oPayload.BNFPO,
+                        success: function (oData) {
                             resolve(oData);
                         },
                         error: function (oError) {
@@ -64,7 +64,7 @@ sap.ui.define([
                     if (sAction === sBtn) {
                         resolve();
                     } else {
-                        reject({message: "Action cancelled.", popup: true});
+                        reject({ message: "Action cancelled.", popup: true });
                     }
                 }
             });
@@ -111,13 +111,17 @@ sap.ui.define([
         },
 
         updateOdataCallList: async function (sEntityName, aPayload) {
-            const oDataModel = this.getOwnerComponent().getModel();
-            oDataModel.sDefaultUpdateMethod = "POST";
-            const aDifGrp = oDataModel.getDeferredGroups();
-            aDifGrp.push("updatePRHeadList");
-            const aResponse = await updatePRList.call(this, sEntityName, aPayload, oDataModel);
-            console.log(aResponse);
-            return aResponse;
+            try {
+                const oDataModel = this.getOwnerComponent().getModel();
+                oDataModel.sDefaultUpdateMethod = "POST";
+                const aDifGrp = oDataModel.getDeferredGroups();
+                aDifGrp.push("updatePRHeadList");
+                const aResponse = await updatePRList.call(this, sEntityName, aPayload, oDataModel);
+                console.log(aResponse);
+                return aResponse;
+            } catch (error) {
+                throw error;
+            }
         },
 
         updateActionEnable: function (aSelectedContext) {

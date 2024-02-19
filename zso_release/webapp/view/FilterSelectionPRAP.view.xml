@@ -1,0 +1,48 @@
+<mvc:View controllerName="zso.rel.com.denpro.controller.FilterSelectionPRAP"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+    <Page id="idSelectionPage" title="{i18n>title}">
+        <content>
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <Label text="{i18n>SO}" />
+                    <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        id="idSOInput" customData:dialogName="SOValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
+                        value="{localData>/filterValues/Vbeln}"
+                        change="onChangeInputValue($event, '/filterValues/Vbeln')">
+                    </Input>
+                    
+                    <Label text="{i18n>SOType}" required="true" />
+                    <ComboBox id="idOrderTypeInput" items="{path: '/zorder_typeSet'}" showSecondaryValues= "true"
+                        selectedKey="{localData>/filterValues/auart}"
+                        change="onChangeInputValueComboBox($event, '/filterValues/auart')">
+                        <core:ListItem key="{auart}" text="{auart}" additionalText = "{auart}"/>
+                    </ComboBox>
+
+                    <Label text="{i18n>createdBy}" />
+                    <Input id="idCreatedBySOInput"
+                        showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        customData:dialogName="CreatedByValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
+                        value="{localData>/filterValues/Ernam}"
+                        change="onChangeInputValue($event, '/filterValues/Ernam')"/>
+
+                </f:content>
+            </f:SimpleForm>
+	    </VBox>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="{i18n>search}" press="onSearchButtonNavToListPress"/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

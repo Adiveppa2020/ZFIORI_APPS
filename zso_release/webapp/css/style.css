@@ -1,0 +1,14 @@
+/* Enter your custom styles here */
+
+
+.displayFlex .sapMListTblSubCntRow {
+    display: flex !important;
+}
+
+.displayFlex .sapMListTblSubCntValBlock {
+    margin-top: 0 !important; 
+}
+
+.sapMListTblSubCntHdr>.sapMListTblSubCntSpr, .sapMListTblSubCntRow>.sapMListTblSubCntHdr .sapMText, .sapMListTblSubCntRow>.sapMListTblSubCntHdr .sapMLabel {
+    font-weight: bold !important;
+}

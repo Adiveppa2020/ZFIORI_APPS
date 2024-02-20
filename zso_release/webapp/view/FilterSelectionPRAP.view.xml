@@ -19,7 +19,7 @@
                         change="onChangeInputValue($event, '/filterValues/Vbeln')">
                     </Input>
                     
-                    <Label text="{i18n>SOType}" required="true" />
+                    <Label text="{i18n>SOType}" />
                     <ComboBox id="idOrderTypeInput" items="{path: '/zorder_typeSet'}" showSecondaryValues= "true"
                         selectedKey="{localData>/filterValues/auart}"
                         change="onChangeInputValueComboBox($event, '/filterValues/auart')">
@@ -33,6 +33,9 @@
                         customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
                         value="{localData>/filterValues/Ernam}"
                         change="onChangeInputValue($event, '/filterValues/Ernam')"/>
+
+                    <Label text="{i18n>createdOn}" required="true" />
+                    <DateRangeSelection id="idCreatedOnDateRangeSO" />
 
                 </f:content>
             </f:SimpleForm>

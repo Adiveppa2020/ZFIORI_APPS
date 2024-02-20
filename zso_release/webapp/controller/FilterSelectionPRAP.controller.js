@@ -31,8 +31,8 @@ sap.ui.define([
                     }
                     return iMonth;
                 }
-                const oFromDate = this.byId("idCreatedOnDateRange").getFrom();
-                const oToDate = this.byId("idCreatedOnDateRange").getTo();
+                const oFromDate = this.byId("idCreatedOnDateRangeSO").getFrom();
+                const oToDate = this.byId("idCreatedOnDateRangeSO").getTo();
                 const oDateRange = {from: "", to: ""};
                 if (oFromDate && oToDate) {
                     let yyyy = oFromDate.getFullYear();
@@ -51,12 +51,15 @@ sap.ui.define([
             onSearchButtonNavToListPress: function () {
                 if (Utils.checkMandatoryParams.call(this)) {
                     const oView = this.getView();
+                    const oDateRange = this.getCreatedOnFilterDate();
                     this.getRouter().navTo("detailslistpage", {
                         salesDocument: "SD",
                         "?query": {
                             createdBy: oView.byId("idCreatedBySOInput").getValue(),
                             salesOrder: oView.byId("idSOInput").getValue(),
-                            orderType: oView.byId("idOrderTypeInput").getSelectedKey() || oView.byId("idOrderTypeInput").getValue()
+                            orderType: oView.byId("idOrderTypeInput").getSelectedKey() || oView.byId("idOrderTypeInput").getValue(),
+                            fromDate: oDateRange.from,
+                            toDate: oDateRange.to
                         }
                     });
                 }

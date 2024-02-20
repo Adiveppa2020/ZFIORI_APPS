@@ -41,6 +41,16 @@ sap.ui.define([
 					sValue: param["?query"].orderType
 				}
 			]);
+
+			const oDateFilter = Utils.getDateFilter({
+				sPath: "Createdon",
+				FromDate: param["?query"].fromDate,
+				ToDate: param["?query"].toDate
+			});
+			if (oDateFilter) {
+				aFilter.push(oDateFilter);
+			}
+
 			const oView = this.getView();
 			oView.byId("idSOListTable").getBinding("items").filter(aFilter);
 		},

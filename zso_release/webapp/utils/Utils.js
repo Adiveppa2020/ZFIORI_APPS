@@ -11,10 +11,10 @@ sap.ui.define([
     }
 
     function checkInputValue(oView) {
-        let sInputlValue = oView.byId("idOrderTypeInput").getSelectedKey() || oView.byId("idOrderTypeInput").getValue();
+        let sInputValue = oView.byId("idCreatedOnDateRangeSO").getFrom();
         let message = "";
-        if (!sInputlValue) {
-            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "SOType"));
+        if (!sInputValue) {
+            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "createdOn"));
             return {
                 error: true,
                 message: message

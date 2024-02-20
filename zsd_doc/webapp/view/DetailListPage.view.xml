@@ -70,9 +70,9 @@
 				<Button type="Success" text="{i18n>approve}" 
                     enabled="{localModel>/enableListPRActions}"
                     press="onPressApproveOrRejectHeaderItem($event, 'ACCEPT')"/>
-				<Button type="Negative" text="{i18n>reject}" 
+				<!-- <Button type="Negative" text="{i18n>reject}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/>
+                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/> -->
 			</OverflowToolbar>
 		</footer>
     </Page>

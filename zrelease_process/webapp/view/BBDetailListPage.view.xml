@@ -1,0 +1,75 @@
+<mvc:View controllerName="zrelease.rel.com.denpro.controller.BBDetailListPage"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Page id="idListPage" showHeader="false">
+        <content>
+            <Table id="idSOListTable" mode="MultiSelect"
+                multiSelectMode="ClearAll"
+                items="{path: '/ZSALES_DOC_INFOSet'}"
+                sticky="ColumnHeaders,HeaderToolbar" growing="true" growingThreshold="20"
+                growingScrollToLoad="true"
+                selectionChange="onSelectPRList" updateFinished="updateFinishedTable" 
+                class="displayFlex"> 
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="{i18n>OutboundDelivery}({localModel>/headTableCount})" level="H2"/>
+                            <ToolbarSpacer />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>salesDoc}" />
+                    </Column>
+                    <Column	minScreenWidth="Phone" >
+                        <Text text="{i18n>orderQuantity}" />
+                    </Column>
+                    <Column minScreenWidth="Phone">
+                        <Text text="{i18n>soldToParty}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
+                        <Text text="{i18n>salesDocType}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>plantName}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>material}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>createdBy}" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>createdOn}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" id="idColumnListItem">
+                        <cells>
+                            <Text text="{Salesdocument}" />
+                            <Text text="{Quantity}" />
+                            <Text text="{Soldtoparty}" />
+                            <Text text="{Doctype}" />
+                            <Text text="{Plant}" />
+                            <Text text="{Material}" />
+                            <Text text="{CreatedBy}" />
+                            <Text text="{path: 'Createdon', formatter:'.dateConversion'}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Success" text="{i18n>approve}" 
+                    enabled="{localModel>/enableListPRActions}"
+                    press="onPressApproveOrRejectHeaderItem($event, 'ACCEPT')"/>
+				<!-- <Button type="Negative" text="{i18n>reject}" 
+                    enabled="{localModel>/enableListPRActions}"
+                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/> -->
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

@@ -12,10 +12,10 @@
                 singleContainerFullSize="false" >
                 <f:content>
                     <Label text="{i18n>relType}" labelFor="relTypeId" />
-                    <RadioButtonGroup id="relTypeId" columns="3" >
-                        <RadioButton text="{i18n>deliveryBlock}" />
-                        <RadioButton text="{i18n>billingBlock}"/>
-                        <RadioButton text="{i18n>empDemoApp}" />
+                    <RadioButtonGroup id="relTypeId" columns="3" select="onSelectRType">
+                        <RadioButton text="{i18n>deliveryBlock}" customData:key="DB"/>
+                        <RadioButton text="{i18n>billingBlock}" customData:key="BB"/>
+                        <RadioButton text="{i18n>empDemoApp}" customData:key="EDA"/>
                     </RadioButtonGroup>
 
                     <Label text="{i18n>companyCode}" labelFor="idCompanyCodeInput"

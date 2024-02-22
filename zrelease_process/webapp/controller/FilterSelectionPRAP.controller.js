@@ -24,8 +24,50 @@ sap.ui.define([
                 return UIComponent.getRouterFor(this);
             },
 
+            onSelectRType: function (oEvent) {
+                const sType = oEvent.getSource().getSelectedButton().getCustomData()[0].getValue();
+                const oLocalModel = this.getOwnerComponent().getModel("localModel");
+                if (sType === "DB" || sType === "BB") {
+                    oLocalModel.setProperty("/visibleEmpDemoAppSelection", false);
+                    oLocalModel.setProperty("/visibleDeliverySelection", true);
+                } else {
+                    oLocalModel.setProperty("/visibleEmpDemoAppSelection", true);
+                    oLocalModel.setProperty("/visibleDeliverySelection", false);
+                }
+            },
+
+            getQueryParam: function (sType) {
+                const oView = this.getView();
+                if (sType === "DB") {
+                    return {
+                        route: "",
+                        queryParam: {
+                            createdBy: oView.byId("idCreatedBySOInput").getValue(),
+                            salesOrder: oView.byId("idSOInput").getValue()
+                        }
+                    };
+                } else if (sType === "BB") {
+                    return {
+                        route: "",
+                        queryParam: {
+                            createdBy: oView.byId("idCreatedBySOInput").getValue(),
+                            salesOrder: oView.byId("idSOInput").getValue()
+                        }
+                    };                    
+                } else {
+                    return {
+                        route: "",
+                        queryParam: {
+                            createdBy: oView.byId("idCreatedBySOInput").getValue(),
+                            salesOrder: oView.byId("idSOInput").getValue()
+                        }
+                    };                    
+                }
+            },
+
+
             getCreatedOnFilterDate: function () {
-                function addZero (iMonth) {
+                function addZero(iMonth) {
                     if (iMonth < 10) {
                         return "0" + iMonth;
                     }
@@ -33,7 +75,7 @@ sap.ui.define([
                 }
                 const oFromDate = this.byId("idCreatedOnDateRangeSO").getFrom();
                 const oToDate = this.byId("idCreatedOnDateRangeSO").getTo();
-                const oDateRange = {from: "", to: ""};
+                const oDateRange = { from: "", to: "" };
                 if (oFromDate && oToDate) {
                     let yyyy = oFromDate.getFullYear();
                     oDateRange.from = yyyy.toString() + addZero(oFromDate.getMonth() + 1) + addZero(oFromDate.getDate());
@@ -49,18 +91,12 @@ sap.ui.define([
              * @private
              */
             onSearchButtonNavToListPress: function () {
-                if (Utils.checkMandatoryParams.call(this)) {
-                    const oView = this.getView();
-                    const oDateRange = this.getCreatedOnFilterDate();
-                    this.getRouter().navTo("detailslistpage", {
-                        salesDocument: "SD",
-                        "?query": {
-                            createdBy: oView.byId("idCreatedBySOInput").getValue(),
-                            salesOrder: oView.byId("idSOInput").getValue(),
-                            orderType: oView.byId("idOrderTypeInput").getSelectedKey() || oView.byId("idOrderTypeInput").getValue(),
-                            fromDate: oDateRange.from,
-                            toDate: oDateRange.to
-                        }
+                const sType = this.byId("relTypeId").getSelectedButton().getCustomData()[0].getValue();
+                if (Utils.checkMandatoryParams.call(this, sType)) {
+                    const oParam = this.getQueryParam(sType);
+                    this.getRouter().navTo(oParam.route, {
+                        id: sType,
+                        "?query": oParam.queryParam
                     });
                 }
             },

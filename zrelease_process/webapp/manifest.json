@@ -99,10 +99,24 @@
           ]
         },
         {
-          "pattern": "detailslist/{salesDocument}/param:?query:",
-          "name": "detailslistpage",
+          "pattern": "deliveryBlock/{id}/param:?query:",
+          "name": "deliveryBlockListPage",
           "target": [
-            "detailslistpage"
+            "deliveryBlockListPage"
+          ]
+        },
+        {
+          "pattern": "billingBlock/{id}/param:?query:",
+          "name": "billingBlockListPage",
+          "target": [
+            "billingBlockListPage"
+          ]
+        },
+        {
+          "pattern": "empDemoApprove/{id}/param:?query:",
+          "name": "empDemoApproveListPage",
+          "target": [
+            "empDemoApproveListPage"
           ]
         }
       ],
@@ -114,10 +128,17 @@
           "viewId": "FilterSelectionPRAP",
           "viewName": "FilterSelectionPRAP"
         },
-        "detailslistpage": {
-          "viewName": "DetailListPage",
-          "viewId": "DetailListPage",
-          "title": "{i18n>title}"
+        "deliveryBlockListPage": {
+          "viewName": "DBDetailListPage",
+          "viewId": "DBDetailListPage"
+        },
+        "billingBlockListPage": {
+          "viewName": "BBDetailListPage",
+          "viewId": "BBDetailListPage"
+        },
+        "empDemoApproveListPage": {
+          "viewName": "EDADetailListPage",
+          "viewId": "EDADetailListPage"
         }
       }
     },

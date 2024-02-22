@@ -7,11 +7,11 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return Controller.extend("zrelease.rel.com.denpro.controller.DetailListPage", {
+	return Controller.extend("zrelease.rel.com.denpro.controller.EDADetailListPage", {
 
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("detailslistpage").attachMatched(function (oEvent) {
+			oRouter.getRoute("empDemoApproveListPage").attachMatched(function (oEvent) {
 				this.loadData(oEvent.getParameter("arguments"));
 			}, this);
 		},

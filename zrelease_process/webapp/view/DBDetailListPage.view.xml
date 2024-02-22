@@ -1,4 +1,4 @@
-<mvc:View controllerName="zrelease.rel.com.denpro.controller.DetailListPage"
+<mvc:View controllerName="zrelease.rel.com.denpro.controller.DBDetailListPage"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <Page id="idListPage" showHeader="false">

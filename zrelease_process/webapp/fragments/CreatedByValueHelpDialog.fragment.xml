@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<SelectDialog id="idCreatedByItemsDialog" title="{i18n>createdByItems}"	items="{/zname_fuzzySet}"
+		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/Ernam')" 
+		cancel=".onValueHelpClose($event, '/filterValues/Ernam')"
+		customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
+		customData:inputId="idCreatedBySOInput">
+		<StandardListItem title="{Bname}" description="{NameText}" />
+	</SelectDialog>
+</core:FragmentDefinition>

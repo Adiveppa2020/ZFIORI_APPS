@@ -1,10 +1,10 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-	<SelectDialog id="idBillingBlockDialog" title="{i18n>billingBlockList}"	items="{/ZPLANT_SEARCHSet}"
-		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/plant')" 
-		cancel=".onValueHelpClose($event, '/filterValues/plant')"
-		customData:FilterProperty="{prop1: 'WERKS', prop2: ''}"
+	<SelectDialog id="idBillingBlockDialog" title="{i18n>billingBlockList}"	items="{/Zbilling_block_BilSet}"
+		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/faksp')" 
+		cancel=".onValueHelpClose($event, '/filterValues/faksp')"
+		customData:FilterProperty="{prop1: 'faksp', prop2: 'faksp'}"
 		customData:inputId="idBillingBlockCodeInput">
-		<StandardListItem title="{WERKS}" description="{NAME1}"  />
+		<StandardListItem title="{faksp}"  />
 	</SelectDialog>
 </core:FragmentDefinition>

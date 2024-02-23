@@ -5,7 +5,7 @@
         <content>
             <Table id="idEDAListTable" mode="MultiSelect"
                 multiSelectMode="ClearAll"
-                items="{path: '/ZSALES_DOC_INFOSet'}"
+                items="{path: '/zemp_apprSet'}"
                 sticky="ColumnHeaders,HeaderToolbar" growing="true" growingThreshold="20"
                 growingScrollToLoad="true"
                 selectionChange="onSelectPRList" updateFinished="updateFinishedTable" 
@@ -20,16 +20,16 @@
                 </headerToolbar>
                 <columns>
                     <Column>
-                        <Text text="{i18n>salesDoc}" />
+                        <Text text="{i18n>desc}" />
                     </Column>
                     <Column	minScreenWidth="Phone" >
-                        <Text text="{i18n>orderQuantity}" />
+                        <Text text="{i18n>client}" />
                     </Column>
                     <Column minScreenWidth="Phone">
-                        <Text text="{i18n>soldToParty}" />
+                        <Text text="{i18n>supplier}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
-                        <Text text="{i18n>salesDocType}" />
+                        <Text text="{i18n>specialStock}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>plantName}" />
@@ -38,23 +38,23 @@
                         <Text text="{i18n>material}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>createdBy}" />
+                        <Text text="{i18n>movementType}" />
                     </Column>
                     <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>createdOn}" />
+                        <Text text="{i18n>postingDate}" />
                     </Column>
                 </columns>
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
                         <cells>
-                            <Text text="{Salesdocument}" />
-                            <Text text="{Quantity}" />
-                            <Text text="{Soldtoparty}" />
-                            <Text text="{Doctype}" />
-                            <Text text="{Plant}" />
-                            <Text text="{Material}" />
-                            <Text text="{CreatedBy}" />
-                            <Text text="{path: 'Createdon', formatter:'.dateConversion'}" />
+                            <Text text="{Maktx}" />
+                            <Text text="{Mandt}" />
+                            <Text text="{Lifnr}" />
+                            <Text text="{Sobkz}" />
+                            <Text text="{Werks}" />
+                            <Text text="{Matnr}" />
+                            <Text text="{Bwart}" />
+                            <Text text="{path: 'Budat', formatter:'.dateConversion'}" />
                         </cells>
                     </ColumnListItem>
                 </items>

@@ -28,19 +28,19 @@ sap.ui.define([
 			this.clearTableSelection();
 			const aFilter = Utils.getFilterArray([
 				{
-					sPath: "Salesdocument",
+					sPath: "Bukrs",
 					sValue: param["?query"].companyCode
 				},
 				{
-					sPath: "CreatedBy",
+					sPath: "Vkorg",
 					sValue: param["?query"].salesOrg
 				},
 				{
-					sPath: "Doctype",
+					sPath: "Vbeln",
 					sValue: param["?query"].SalesDoc
 				},
 				{
-					sPath: "blockCode",
+					sPath: "Lifsp",
 					sValue: param["?query"].blockCode
 				}
 			]);

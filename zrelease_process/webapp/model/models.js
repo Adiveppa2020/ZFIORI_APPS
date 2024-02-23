@@ -25,7 +25,11 @@ sap.ui.define([
                     "filterValues": {
                         "Vbeln": "",
                         "Ernam": "",
-                        "auart": ""
+                        "auart": "",
+                        Bukrs: "",
+                        Vkorg: "",
+                        LIFSP: "",
+                        faksp: ""
                     },
                     headTableCount: 0,
                     lineTableCount: 0,

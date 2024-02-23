@@ -29,17 +29,17 @@ sap.ui.define([
 			this.salesOrder = param["?query"].salesOrder;
 			const aFilter = Utils.getFilterArray([
 				{
-					sPath: "supplier",
+					sPath: "Lifnr",
 					sValue: param["?query"].supplier
 				},
 				{
-					sPath: "plant",
+					sPath: "Werks",
 					sValue: param["?query"].plant
 				}
 			]);
 
 			const oDateFilter = Utils.getDateFilter({
-				sPath: "Createdon",
+				sPath: "Budat",
 				FromDate: param["?query"].PDFrom,
 				ToDate: param["?query"].PDTo
 			});

@@ -5,7 +5,7 @@
         <content>
             <Table id="idDeliveryBlockListTable" mode="MultiSelect"
                 multiSelectMode="ClearAll"
-                items="{path: '/ZSALES_DOC_INFOSet'}"
+                items="{path: '/zsd_so_relSet'}"
                 sticky="ColumnHeaders,HeaderToolbar" growing="true" growingThreshold="20"
                 growingScrollToLoad="true"
                 selectionChange="onSelectPRList" updateFinished="updateFinishedTable" 
@@ -26,10 +26,10 @@
                         <Text text="{i18n>orderQuantity}" />
                     </Column>
                     <Column minScreenWidth="Phone">
-                        <Text text="{i18n>soldToParty}" />
+                        <Text text="{i18n>deliveryBlock}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
-                        <Text text="{i18n>salesDocType}" />
+                        <Text text="{i18n>customer}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>plantName}" />
@@ -38,7 +38,7 @@
                         <Text text="{i18n>material}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>createdBy}" />
+                        <Text text="{i18n>companyName}" />
                     </Column>
                     <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>createdOn}" />
@@ -47,14 +47,14 @@
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
                         <cells>
-                            <Text text="{Salesdocument}" />
-                            <Text text="{Quantity}" />
-                            <Text text="{Soldtoparty}" />
-                            <Text text="{Doctype}" />
-                            <Text text="{Plant}" />
-                            <Text text="{Material}" />
-                            <Text text="{CreatedBy}" />
-                            <Text text="{path: 'Createdon', formatter:'.dateConversion'}" />
+                            <Text text="{Vbeln}" />
+                            <Text text="{Kwmeng}" />
+                            <Text text="{Lifsp}" />
+                            <Text text="{Kunnr}" />
+                            <Text text="{Name1}" />
+                            <Text text="{Matnr}" />
+                            <Text text="{Butxt} ({Bukrs})" />
+                            <Text text="{path: 'Audat', formatter:'.dateConversion'}" />
                         </cells>
                     </ColumnListItem>
                 </items>

@@ -30,38 +30,13 @@ sap.ui.define([
                 if (sType === "DB" || sType === "BB") {
                     oLocalModel.setProperty("/visibleEmpDemoAppSelection", false);
                     oLocalModel.setProperty("/visibleDeliverySelection", true);
+                    oLocalModel.setProperty("/visibleBillingBlockSelection", (sType === "BB"));
+                    oLocalModel.setProperty("/visibleBlockCodeSelection", (sType === "DB"));
                 } else {
                     oLocalModel.setProperty("/visibleEmpDemoAppSelection", true);
                     oLocalModel.setProperty("/visibleDeliverySelection", false);
-                }
-            },
-
-            getQueryParam: function (sType) {
-                const oView = this.getView();
-                if (sType === "DB") {
-                    return {
-                        route: "",
-                        queryParam: {
-                            createdBy: oView.byId("idCreatedBySOInput").getValue(),
-                            salesOrder: oView.byId("idSOInput").getValue()
-                        }
-                    };
-                } else if (sType === "BB") {
-                    return {
-                        route: "",
-                        queryParam: {
-                            createdBy: oView.byId("idCreatedBySOInput").getValue(),
-                            salesOrder: oView.byId("idSOInput").getValue()
-                        }
-                    };                    
-                } else {
-                    return {
-                        route: "",
-                        queryParam: {
-                            createdBy: oView.byId("idCreatedBySOInput").getValue(),
-                            salesOrder: oView.byId("idSOInput").getValue()
-                        }
-                    };                    
+                    oLocalModel.setProperty("/visibleBillingBlockSelection", false);
+                    oLocalModel.setProperty("/visibleBlockCodeSelection", false);
                 }
             },
 
@@ -73,8 +48,8 @@ sap.ui.define([
                     }
                     return iMonth;
                 }
-                const oFromDate = this.byId("idCreatedOnDateRangeSO").getFrom();
-                const oToDate = this.byId("idCreatedOnDateRangeSO").getTo();
+                const oFromDate = this.byId("idPostingDateRangeSO").getFrom();
+                const oToDate = this.byId("idPostingDateRangeSO").getTo();
                 const oDateRange = { from: "", to: "" };
                 if (oFromDate && oToDate) {
                     let yyyy = oFromDate.getFullYear();
@@ -83,6 +58,43 @@ sap.ui.define([
                     oDateRange.to = yyyy.toString() + addZero(oToDate.getMonth() + 1) + addZero(oToDate.getDate());
                 }
                 return oDateRange;
+            },
+
+            getQueryParam: function (sType) {
+                const oView = this.getView();
+                const oCommon = {
+                    companyCode: oView.byId("idCompanyCodeInput").getValue(),
+                    salesOrg: oView.byId("idSalesOrgInput").getValue(),
+                    SalesDoc: oView.byId("idSoNoInput").getValue()
+                }
+                if (sType === "DB") {
+                    return {
+                        route: "deliveryBlockListPage",
+                        queryParam: {
+                            ...oCommon,
+                            blockCode: oView.byId("idBlockCodeInput").getValue()
+                        }
+                    };
+                } else if (sType === "BB") {
+                    return {
+                        route: "billingBlockListPage",
+                        queryParam: {
+                            ...oCommon,
+                            billingBlock: oView.byId("idBillingBlockCodeInput").getValue()
+                        }
+                    };                    
+                } else {
+                    const PDDate = this.getCreatedOnFilterDate();
+                    return {
+                        route: "empDemoApproveListPage",
+                        queryParam: {
+                            supplier: oView.byId("idSupplierInput").getValue(),
+                            plant: oView.byId("idPlantInput").getValue(),
+                            PDFrom: PDDate.from,
+                            PDTo: PDDate.to
+                        }
+                    };                    
+                }
             },
 
             /**

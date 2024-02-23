@@ -1,10 +1,10 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-	<SelectDialog id="idSORDialog" title="{i18n>salesDocList}"	items="{/zsales_order_fuzzySet}"
+	<SelectDialog id="idBlockCodeDialog" title="{i18n>blockCodeList}"	items="{/zsales_order_fuzzySet}"
 		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/Vbeln')" 
 		cancel=".onValueHelpClose($event, '/filterValues/Vbeln')"
 		customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
-		customData:inputId="idSoNoInput">
+		customData:inputId="idBlockCodeInput">
 		<StandardListItem title="{Vbeln}" />
 	</SelectDialog>
 </core:FragmentDefinition>

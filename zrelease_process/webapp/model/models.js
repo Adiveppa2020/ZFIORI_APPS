@@ -35,7 +35,8 @@ sap.ui.define([
                     enableListPRActions: false,
                     enableListPRDetailsActions: false,
                     visibleDeliverySelection: true,
-                    visibleBillingSelection: false,
+                    visibleBillingBlockSelection: false,
+                    visibleBlockCodeSelection: true,
                     visibleEmpDemoAppSelection: false
                 });
             }

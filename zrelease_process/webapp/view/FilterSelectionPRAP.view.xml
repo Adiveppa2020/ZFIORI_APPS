@@ -21,7 +21,7 @@
                     <Label text="{i18n>companyCode}" labelFor="idCompanyCodeInput"
                         visible="{localModel>/visibleDeliverySelection}"/>
                     <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
-                        id="idCompanyCodeInput" customData:dialogName="SOValueHelpDialog"
+                        id="idCompanyCodeInput" customData:dialogName="CompanyCodeValueHelpDialog"
                         customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
                         value="{localData>/filterValues/Vbeln}"
                         change="onChangeInputValue($event, '/filterValues/Vbeln')"
@@ -31,24 +31,14 @@
                     <Label text="{i18n>salseOrg}" labelFor="idSalesOrgInput"
                         visible="{localModel>/visibleDeliverySelection}"/>
                     <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
-                        id="idSalesOrgInput" customData:dialogName="SOValueHelpDialog"
+                        id="idSalesOrgInput" customData:dialogName="SalesOrgValueHelpDialog"
                         customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
                         value="{localData>/filterValues/Vbeln}"
                         change="onChangeInputValue($event, '/filterValues/Vbeln')"
                         visible="{localModel>/visibleDeliverySelection}">
                     </Input>
 
-                    <Label text="{i18n>blockCode}" labelFor="idBlockCodeInput"
-                        visible="{localModel>/visibleDeliverySelection}"/>
-                    <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
-                        id="idBlockCodeInput" customData:dialogName="SOValueHelpDialog"
-                        customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
-                        value="{localData>/filterValues/Vbeln}"
-                        change="onChangeInputValue($event, '/filterValues/Vbeln')"
-                        visible="{localModel>/visibleDeliverySelection}">
-                    </Input>
-
-                    <Label text="{i18n>soNo}" labelFor="idSoNoInput"
+                    <Label text="{i18n>salesDocument}" labelFor="idSoNoInput"
                         visible="{localModel>/visibleDeliverySelection}"/>
                     <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
                         id="idSoNoInput" customData:dialogName="SOValueHelpDialog"
@@ -57,21 +47,42 @@
                         change="onChangeInputValue($event, '/filterValues/Vbeln')"
                         visible="{localModel>/visibleDeliverySelection}">
                     </Input>
+
+                    <Label text="{i18n>blockCode}" labelFor="idBlockCodeInput"
+                        visible="{localModel>/visibleBlockCodeSelection}"/>
+                    <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        id="idBlockCodeInput" customData:dialogName="BlockCodeValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
+                        value="{localData>/filterValues/Vbeln}"
+                        change="onChangeInputValue($event, '/filterValues/Vbeln')"
+                        visible="{localModel>/visibleBlockCodeSelection}">
+                    </Input>
+
+                    <Label text="{i18n>billingBlockLabel}" labelFor="idBillingBlockCodeInput"
+                        visible="{localModel>/visibleBillingBlockSelection}"/>
+                    <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        id="idBillingBlockCodeInput" customData:dialogName="BillingBlockValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Vbeln', prop2: 'Vbeln'}"
+                        value="{localData>/filterValues/Vbeln}"
+                        change="onChangeInputValue($event, '/filterValues/Vbeln')"
+                        visible="{localModel>/visibleBillingBlockSelection}">
+                    </Input>
                     
                     <Label text="{i18n>supplier}" labelFor="idSupplierInput"
                         visible="{localModel>/visibleEmpDemoAppSelection}"/>
-                    <ComboBox id="idSupplierInput" items="{path: '/zorder_typeSet'}" showSecondaryValues= "true"
-                        selectedKey="{localData>/filterValues/auart}"
-                        change="onChangeInputValueComboBox($event, '/filterValues/auart')"
-                        visible="{localModel>/visibleEmpDemoAppSelection}">
-                        <core:ListItem key="{auart}" text="{auart}" additionalText = "{auart}"/>
-                    </ComboBox>
+                    <Input id="idSupplierInput"
+                        showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        customData:dialogName="SupplierValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
+                        value="{localData>/filterValues/Ernam}"
+                        change="onChangeInputValue($event, '/filterValues/Ernam')"
+                        visible="{localModel>/visibleEmpDemoAppSelection}"/>
 
                     <Label text="{i18n>plant}" labelFor="idPlantInput"
                         visible="{localModel>/visibleEmpDemoAppSelection}"/>
                     <Input id="idPlantInput"
                         showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
-                        customData:dialogName="CreatedByValueHelpDialog"
+                        customData:dialogName="PlantValueHelpDialog"
                         customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
                         value="{localData>/filterValues/Ernam}"
                         change="onChangeInputValue($event, '/filterValues/Ernam')"

@@ -21,7 +21,7 @@ sap.ui.define([
 		clearTableSelection: function () {
 			const oLocalModel = this.getOwnerComponent().getModel("localModel");
 			oLocalModel.setProperty("/enableListPRActions", false);
-			this.byId("idSOListTable").removeSelections();
+			this.byId("idEDAListTable").removeSelections();
 		},
 
 		loadData: async function (param) {
@@ -29,30 +29,26 @@ sap.ui.define([
 			this.salesOrder = param["?query"].salesOrder;
 			const aFilter = Utils.getFilterArray([
 				{
-					sPath: "Salesdocument",
-					sValue: param["?query"].salesOrder
+					sPath: "supplier",
+					sValue: param["?query"].supplier
 				},
 				{
-					sPath: "CreatedBy",
-					sValue: param["?query"].createdBy
-				},
-				{
-					sPath: "Doctype",
-					sValue: param["?query"].orderType
+					sPath: "plant",
+					sValue: param["?query"].plant
 				}
 			]);
 
 			const oDateFilter = Utils.getDateFilter({
 				sPath: "Createdon",
-				FromDate: param["?query"].fromDate,
-				ToDate: param["?query"].toDate
+				FromDate: param["?query"].PDFrom,
+				ToDate: param["?query"].PDTo
 			});
 			if (oDateFilter) {
 				aFilter.push(oDateFilter);
 			}
 
 			const oView = this.getView();
-			oView.byId("idSOListTable").getBinding("items").filter(aFilter);
+			oView.byId("idEDAListTable").getBinding("items").filter(aFilter);
 		},
 
 		onSelectPRList: function (oEvent) {
@@ -70,7 +66,7 @@ sap.ui.define([
 		onPressApproveOrRejectHeaderItem: async function (oEvent, sAction) {
 			const oView = this.getView();
 			try {
-				const oTable = oView.byId("idSOListTable");
+				const oTable = oView.byId("idEDAListTable");
 				const sConfirmMsg = Utils.getI18nText(oView, (sAction === "ACCEPT" ? "mgsConfirmAcceptHead" : "mgsConfirmRejectHead"));
 				await Utils.displayConfirmMessageBox(sConfirmMsg, "Proceed");
 				const aSelectedContext = oTable.getSelectedContexts();

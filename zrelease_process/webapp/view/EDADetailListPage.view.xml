@@ -1,9 +1,9 @@
 <mvc:View controllerName="zrelease.rel.com.denpro.controller.EDADetailListPage"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-    <Page id="idListPage" showHeader="false">
+    <Page id="idEDAListPage" showHeader="false">
         <content>
-            <Table id="idSOListTable" mode="MultiSelect"
+            <Table id="idEDAListTable" mode="MultiSelect"
                 multiSelectMode="ClearAll"
                 items="{path: '/ZSALES_DOC_INFOSet'}"
                 sticky="ColumnHeaders,HeaderToolbar" growing="true" growingThreshold="20"
@@ -13,7 +13,7 @@
                 <headerToolbar>
                     <OverflowToolbar>
                         <content>
-                            <Title text="{i18n>OutboundDelivery}({localModel>/headTableCount})" level="H2"/>
+                            <Title text="{i18n>empDemoAppList}({localModel>/headTableCount})" level="H2"/>
                             <ToolbarSpacer />
                         </content>
                     </OverflowToolbar>
@@ -66,9 +66,9 @@
 				<Button type="Success" text="{i18n>approve}" 
                     enabled="{localModel>/enableListPRActions}"
                     press="onPressApproveOrRejectHeaderItem($event, 'ACCEPT')"/>
-				<!-- <Button type="Negative" text="{i18n>reject}" 
+				<Button type="Negative" text="{i18n>reject}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/> -->
+                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/>
 			</OverflowToolbar>
 		</footer>
     </Page>

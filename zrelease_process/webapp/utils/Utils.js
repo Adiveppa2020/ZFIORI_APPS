@@ -10,11 +10,11 @@ sap.ui.define([
         return oView?.getModel("i18n")?.getResourceBundle()?.getText(key, parts);
     }
 
-    function checkInputValue(oView) {
-        let sInputValue = oView.byId("idCreatedOnDateRangeSO").getFrom();
+    function checkInputValue(oView, sType) {
+        let sInputValue = oView.byId("idPostingDateRangeSO").getFrom();
         let message = "";
-        if (!sInputValue) {
-            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "createdOn"));
+        if (!sInputValue && sType === "EDA") {
+            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "postingDate"));
             return {
                 error: true,
                 message: message
@@ -74,8 +74,8 @@ sap.ui.define([
         getI18nText,
         displayErrorMessagePopup,
         displayConfirmMessageBox,
-        checkMandatoryParams: function () {
-            let oInputRequire = checkInputValue(this.getView());
+        checkMandatoryParams: function (sType) {
+            let oInputRequire = checkInputValue(this.getView(), sType);
             if (oInputRequire.error) {
                 displayErrorMessagePopup(oInputRequire.message);
             } else {

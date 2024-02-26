@@ -43,6 +43,21 @@
                     <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>createdOn}" />
                     </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>salseOrg}" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>distrChannel}" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>item}" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>desc}" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>amount}" />
+                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
@@ -51,10 +66,15 @@
                             <Text text="{Kwmeng}" />
                             <Text text="{Lifsp}" />
                             <Text text="{Kunnr}" />
-                            <Text text="{Name1}" />
+                            <Text text="{PName}" maxLines="2"/>
                             <Text text="{Matnr}" />
                             <Text text="{Butxt} ({Bukrs})" />
                             <Text text="{path: 'Audat', formatter:'.dateConversion'}" />
+                            <Text text="{Vkorg}" />
+                            <Text text="{Vtweg}" />
+                            <Text text="{Posnr}" />
+                            <Text text="{Maktx}" maxLines="2" />
+                            <Text text="{Zcds}" />
                         </cells>
                     </ColumnListItem>
                 </items>

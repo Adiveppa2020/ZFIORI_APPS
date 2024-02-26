@@ -1,9 +1,8 @@
 sap.ui.define([
 	"zrelease/rel/com/denpro/controller/App.controller",
-	"zrelease/rel/com/denpro/utils/Utils",
-	"sap/m/MessageToast"
+	"zrelease/rel/com/denpro/utils/Utils"
 ], function (
-	Controller, Utils, MessageToast
+	Controller, Utils
 ) {
 	"use strict";
 
@@ -58,31 +57,6 @@ sap.ui.define([
 			oLocalModel.setProperty("/headTableCount", oEvent.getParameter("total"));
 			const aSelectedContext = oEvent.getSource().getSelectedContexts() || [];
 			Utils.updateActionEnable.call(this, aSelectedContext);
-		},
-
-		onPressApproveOrRejectHeaderItem: async function (oEvent, sAction) {
-			const oView = this.getView();
-			try {
-				const oTable = oView.byId("idBillingBlockListTable");
-				const sConfirmMsg = Utils.getI18nText(oView, (sAction === "ACCEPT" ? "mgsConfirmAcceptHead" : "mgsConfirmRejectHead"));
-				await Utils.displayConfirmMessageBox(sConfirmMsg, "Proceed");
-				const aSelectedContext = oTable.getSelectedContexts();
-				const oPayload = Utils.getHeadSetUpdatePayload.call(this, aSelectedContext, sAction);
-				oView.setBusy(true);
-				const aResponse = await Utils.updateODataCallList.call(this, "/ZSALES_DOC_INFOSet", oPayload);
-				oView.setBusy(false);
-				if (aResponse && aResponse.length > 0) {
-					const msg = Utils.getI18nText(oView, (sAction === "ACCEPT" ? "msgApproveSuccess" : "msgRejectSuccess"));
-					MessageToast.show(msg);
-				}
-				oTable.getBinding("items").refresh();
-			} catch (error) {
-				oView.setBusy(false);
-				if ((typeof error === "object") && !error.popup) {
-					const sErrorMsg = error && (error.responseText || "Error while updating List - " + error.message);
-					Utils.displayErrorMessagePopup(sErrorMsg);
-				}
-			}
 		}
 
 	});

@@ -56,16 +56,16 @@
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
                         <cells>
-                            <Text text="{ProjNam}" />
-                            <Text text="{Maktx}" wrapping="true" wrappingType="Hyphenated"/>
-                            <Text text="{Kbetr}" />
-                            <Text text="{Mandt}" />
-                            <Text text="{Lifnr}" />
-                            <Text text="{VertHead}" />
-                            <Text text="{Sobkz}" />
-                            <Text text="{Werks}" />
-                            <Text text="{Matnr}" />
-                            <Text text="{Bwart}" />
+                            <Text text="{ProjNam}"  maxLines="2"/>
+                            <Text text="{Maktx}" wrapping="true" wrappingType="Hyphenated"  maxLines="2"/>
+                            <Text text="{Kbetr}"  maxLines="2"/>
+                            <Text text="{Mandt}"  maxLines="2"/>
+                            <Text text="{Lifnr}"  maxLines="2"/>
+                            <Text text="{VertHead}"  maxLines="2"/>
+                            <Text text="{Sobkz}"  maxLines="2"/>
+                            <Text text="{Werks}"  maxLines="2"/>
+                            <Text text="{Matnr}"  maxLines="2"/>
+                            <Text text="{Bwart}"  maxLines="2"/>
                             <Text text="{path: 'Budat', formatter:'.dateConversion'}" />
                         </cells>
                     </ColumnListItem>
@@ -77,10 +77,10 @@
 				<ToolbarSpacer/>
 				<Button type="Success" text="{i18n>approve}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'ACCEPT')"/>
+                    press="onPressApproveOrReject($event, 'ACCEPT', 'idEDAListTable', '/zemp_apprSet')"/>
 				<Button type="Negative" text="{i18n>reject}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/>
+                    press="onPressApproveOrReject($event, 'REJECT', 'idEDAListTable', '/zemp_apprSet')"/>
 			</OverflowToolbar>
 		</footer>
     </Page>

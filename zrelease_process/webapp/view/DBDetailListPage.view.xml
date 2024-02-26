@@ -62,19 +62,19 @@
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
                         <cells>
-                            <Text text="{Vbeln}" />
-                            <Text text="{Kwmeng}" />
-                            <Text text="{Lifsp}" />
-                            <Text text="{Kunnr}" />
+                            <Text text="{Vbeln}"  maxLines="2"/>
+                            <Text text="{Kwmeng}"  maxLines="2"/>
+                            <Text text="{Lifsp}"  maxLines="2"/>
+                            <Text text="{Kunnr}"  maxLines="2"/>
                             <Text text="{PName}" maxLines="2"/>
-                            <Text text="{Matnr}" />
-                            <Text text="{Butxt} ({Bukrs})" />
+                            <Text text="{Matnr}"  maxLines="2"/>
+                            <Text text="{Butxt} ({Bukrs})"  maxLines="2"/>
                             <Text text="{path: 'Audat', formatter:'.dateConversion'}" />
-                            <Text text="{Vkorg}" />
-                            <Text text="{Vtweg}" />
-                            <Text text="{Posnr}" />
+                            <Text text="{Vkorg}"  maxLines="2"/>
+                            <Text text="{Vtweg}"  maxLines="2"/>
+                            <Text text="{Posnr}"  maxLines="2"/>
                             <Text text="{Maktx}" maxLines="2" />
-                            <Text text="{Zcds}" />
+                            <Text text="{Zcds}"  maxLines="2"/>
                         </cells>
                     </ColumnListItem>
                 </items>
@@ -85,10 +85,10 @@
 				<ToolbarSpacer/>
 				<Button type="Success" text="{i18n>approve}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'ACCEPT')"/>
+                    press="onPressApproveOrReject($event, 'ACCEPT', 'idDeliveryBlockListTable', '/zsd_so_relSet')"/>
 				<Button type="Negative" text="{i18n>reject}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/>
+                    press="onPressApproveOrReject($event, 'REJECT', 'idDeliveryBlockListTable', '/zsd_so_relSet')"/>
 			</OverflowToolbar>
 		</footer>
     </Page>

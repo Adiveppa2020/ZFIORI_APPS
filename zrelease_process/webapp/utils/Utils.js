@@ -35,13 +35,15 @@ sap.ui.define([
 
 
     async function updatePRList(sEntityName, aPayload, oDataModel) {
+        this.changeSetId = this.changeSetId ? this.changeSetId : 1;
         return Promise.all(aPayload.map(function (oPayload) {
+            this.changeSetId = this.changeSetId + 10;
             return new Promise(function (resolve, reject) {
                 oDataModel.update(sEntityName, oPayload,
                     {
                         method: "POST",
                         groupId: "GID",
-                        changeSetId: "changeSetId" + oPayload.Salesdocument,
+                        changeSetId: "changeSetId" +  this.changeSetId,
                         success: function (oData) {
                             resolve(oData);
                         },
@@ -49,7 +51,7 @@ sap.ui.define([
                             reject(oError);
                         }
                     });
-            });
+            }.bind(this));
         }.bind(this)));
     }
 

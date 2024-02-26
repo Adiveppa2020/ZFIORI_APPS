@@ -59,17 +59,17 @@
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
                         <cells>
-                            <Text text="{Vbeln}" />
-                            <Text text="{Faksp}" />
-                            <Text text="{Posnr}" />
-                            <Text text="{Kunnr}" />
-                            <Text text="{Maktx}" />
-                            <Text text="{Vtweg}" />
-                            <Text text="{Werks}" />
-                            <Text text="{Matnr}" />
-                            <Text text="{Vkorg}" />
-                            <Text text="{Bukrs}" />
-                            <Text text="{Zmonth}" />
+                            <Text text="{Vbeln}"  maxLines="2" />
+                            <Text text="{Faksp}"  maxLines="2" />
+                            <Text text="{Posnr}"  maxLines="2" />
+                            <Text text="{Kunnr}"  maxLines="2" />
+                            <Text text="{Maktx}"  maxLines="2" />
+                            <Text text="{Vtweg}"  maxLines="2" />
+                            <Text text="{Werks}"  maxLines="2" />
+                            <Text text="{Matnr}"  maxLines="2" />
+                            <Text text="{Vkorg}"  maxLines="2" />
+                            <Text text="{Bukrs}"  maxLines="2" />
+                            <Text text="{Zmonth}"  maxLines="2" />
                             <Text text="{path: 'Audat', formatter:'.dateConversion'}" />
                         </cells>
                     </ColumnListItem>
@@ -81,10 +81,10 @@
 				<ToolbarSpacer/>
 				<Button type="Success" text="{i18n>approve}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'ACCEPT')"/>
+                    press="onPressApproveOrReject($event, 'ACCEPT', 'idBillingBlockListTable', '/zbilling_block_relSet')"/>
 				<Button type="Negative" text="{i18n>reject}" 
                     enabled="{localModel>/enableListPRActions}"
-                    press="onPressApproveOrRejectHeaderItem($event, 'REJECT')"/>
+                    press="onPressApproveOrReject($event, 'REJECT', 'idBillingBlockListTable', '/zbilling_block_relSet')"/>
 			</OverflowToolbar>
 		</footer>
     </Page>

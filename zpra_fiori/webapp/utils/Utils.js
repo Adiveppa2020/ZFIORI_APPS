@@ -177,6 +177,7 @@ sap.ui.define([
                     aLineItemContext.forEach(function (sContextLine) {
                         const oLineItem = oContext.getModel().getContext("/" + sContextLine).getObject();
                         oLineItem.RESWK = sSupplyPlant || oLineItem.RESWK;
+                        oLineItem.A_MENGE = oPayload.A_MENGE;
                         delete oLineItem.__metadata;
                         aLineItem.push(oLineItem);
                     });
@@ -190,10 +191,11 @@ sap.ui.define([
 
         },
 
-        getLineItemSetUpdatePlayload: function (aContext, sSupplyPlant, sAction, oHeadItem, releaseCode) {
+        getLineItemSetUpdatePayload: function (aContext, sSupplyPlant, sAction, oHeadItem, releaseCode) {
             const oView = this.getView();
             const oPayload = oHeadItem;
             delete oPayload.__metadata;
+            delete oPayload.ZITEMNAV;
             oPayload.ACTION = sAction.toUpperCase();
             oPayload.RESWK = sSupplyPlant || oPayload.RESWK;
             oPayload.FRGZU = releaseCode;
@@ -204,6 +206,7 @@ sap.ui.define([
                     delete oLineItem.__metadata;
                     oLineItem.RESWK = sSupplyPlant || oLineItem.RESWK;
                     aNavItems.push(oLineItem);
+                    oPayload.A_MENGE = oLineItem.A_MENGE;
                 });
                 oPayload.ZITEMNAV = aNavItems;
             } else {

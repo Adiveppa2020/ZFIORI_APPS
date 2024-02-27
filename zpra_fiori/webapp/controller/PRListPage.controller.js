@@ -17,9 +17,14 @@ sap.ui.define([
 			this.supplyPlant = "";
 		},
 
-		loadData: async function (param) {
+		clearTableSelection: function () {
 			const oLocalModel = this.getOwnerComponent().getModel("localModel");
 			oLocalModel.setProperty("/enableListPRActions", false);
+			this.byId("idPRListTable").removeSelections();
+		},
+
+		loadData: async function (param) {
+			this.clearTableSelection();
 			this.releaseCode = param.releaseCode;
 			const aFilter = Utils.getFilterArray([
 				{
@@ -59,7 +64,8 @@ sap.ui.define([
 						plant: oContext.WERKS,
 						releaseCode: this.releaseCode,
 						material: oContext.MATNR,
-						docType: oContext.BSART
+						docType: oContext.BSART,
+						prItemNo: oContext.BNFPO
 					}
 				});
 			} else {
@@ -121,6 +127,8 @@ sap.ui.define([
 					const sErrorMsg = error && (error.responseText || "Error while updating List - " + error.message);
 					Utils.displayErrorMessagePopup(sErrorMsg);
 				}
+			} finally {
+				oView.setBusy(false);
 			}
 		}
 

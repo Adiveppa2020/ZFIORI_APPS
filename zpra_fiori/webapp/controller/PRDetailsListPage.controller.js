@@ -36,36 +36,57 @@ sap.ui.define([
 			}
 		},
 
-		loadData: async function (param) {
-			this.material = param["?query"].material;
-			this.releaseCode =  param["?query"].releaseCode;
-			const aFilter = Utils.getFilterArray([
-				{
-					sPath: "BANFN",
-					sValue: param.purchaseReqNo
-				},
-				{
-					sPath: "MATNR",
-					sValue: param["?query"].material
-				}
-			]);
-			const oView = this.getView();
-			oView.byId("idPRDetailsListTable").getBinding("items").filter(aFilter);
-			this.supplyPlant = "";
-
-			try {
-				const sEntityName = `/ZHeadSet(MATNR='${param["?query"].material}',BANFN='${param.purchaseReqNo}')`;
-				const oResponse = await Utils.readOdataCall.call(this, sEntityName, [], {});
-				this.HeadSetItem = oResponse;
-			} catch (error) {
-				Utils.displayErrorMessagePopup("Error while fetching Head Set data - " + error?.message);
-			}
+		getPRDetailsData: async function () {
 			this.clearTableSelection();
+			const oView = this.getView();
+			this.supplyPlant = "";
+			try {
+				oView.setBusy(true);
+				const aFilter = Utils.getFilterArray([
+					{
+						sPath: "BANFN",
+						sValue: this.prNo
+					},
+					{
+						sPath: "MATNR",
+						sValue: this.material
+					},
+					{
+						sPath: "BNFPO",
+						sValue: this.prItemNo
+					},
+					{
+						sPath: "FRGZU",
+						sValue: this.releaseCode
+					}
+				]);
+				const oResponse = await Utils.readOdataCall.call(this, "/ZHeadSet", aFilter, {
+					"$expand": "ZITEMNAV"
+				});
+				let LineItems = [], headItem = [];
+				if (oResponse && Array.isArray(oResponse.results) && oResponse.results.length > 0) {
+					headItem = oResponse['results'][0];
+					LineItems = oResponse['results'][0].ZITEMNAV.results || [];
+				}
+				const oLocalModel = this.getOwnerComponent().getModel("localModel");
+				oLocalModel.setProperty("/lineTableCount", LineItems.length);
+				oLocalModel.setProperty("/LineDetails", LineItems);
+				oLocalModel.setProperty("/HeadDetails", headItem);
+				oView.setBusy(false);
+			} catch (error) {
+				oView.setBusy(false);
+				Utils.displayErrorMessagePopup("Error while fetching Head Set data - " + error?.message);
+			} finally {
+				oView.setBusy(false);
+			}
 		},
 
-		updateFinishedTable: function (oEvent) {
-			const oLocalModel = this.getOwnerComponent().getModel("localModel");
-			oLocalModel.setProperty("/lineTableCount", oEvent.getParameter("total"));
+		loadData: async function (param) {
+			this.material = param["?query"].material;
+			this.releaseCode = param["?query"].releaseCode;
+			this.prItemNo = param["?query"].prItemNo;
+			this.prNo = param.purchaseReqNo;
+			this.getPRDetailsData();
 		},
 
 		onPressStockView: async function () {
@@ -87,13 +108,13 @@ sap.ui.define([
 			const oView = this.getView();
 			const sSuppPlantValue = oView.byId("idInputSupplyPlant10").getValue();
 			if (sSuppPlantValue) {
-			  this.supplyPlant = sSuppPlantValue;
-			  Utils.updateSupplyPlantToLineItemList.call(this, sSuppPlantValue);
-			  this.onPressCloseDialog(oEvent);
+				this.supplyPlant = sSuppPlantValue;
+				Utils.updateSupplyPlantToLineItemList.call(this, sSuppPlantValue);
+				this.onPressCloseDialog(oEvent);
 			} else {
-			  this.supplyPlant = "";
-			  const msg = Utils.getI18nText(oView, "noPlant");
-			  MessageToast.show(msg);
+				this.supplyPlant = "";
+				const msg = Utils.getI18nText(oView, "noPlant");
+				MessageToast.show(msg);
 			}
 		},
 
@@ -104,7 +125,8 @@ sap.ui.define([
 				const sconfirmMsg = Utils.getI18nText(oView, (sAction === "Accept" ? "mgsConfirmAccept" : "mgsConfirmReject"));
 				await Utils.displayConfirmMessageBox(sconfirmMsg, "Proceed");
 				const aContext = oTable.getSelectedContexts();
-				const oPayload = Utils.getLineItemSetUpdatePlayload.call(this, aContext, this.supplyPlant, sAction, this.HeadSetItem, this.releaseCode);
+				const oLocalModel = this.getOwnerComponent().getModel("localModel");
+				const oPayload = Utils.getLineItemSetUpdatePayload.call(this, aContext, this.supplyPlant, sAction, oLocalModel.getProperty("/HeadDetails"), this.releaseCode);
 				oView.setBusy(true);
 				const aResponse = await Utils.updateOdataCallList.call(this, "/ZHeadSet", [oPayload]);
 				oView.setBusy(false);
@@ -112,14 +134,14 @@ sap.ui.define([
 					const msg = Utils.getI18nText(oView, (sAction === "Accept" ? "msgApproveSuccess" : "msgRejectSuccess"));
 					MessageToast.show(msg);
 				}
+				this.getPRDetailsData();
 				oTable.getBinding("items").refresh();
-				this.clearTableSelection();
 			} catch (error) {
 				oView.setBusy(false);
 				if ((typeof error === "object") && !error.popup) {
 					const sErrorMsg = error && (error.responseText || "Error while updating List - " + error.message);
 					Utils.displayErrorMessagePopup(sErrorMsg);
-				}				
+				}
 			}
 		},
 

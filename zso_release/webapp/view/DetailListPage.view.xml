@@ -28,6 +28,9 @@
                     <Column minScreenWidth="Phone">
                         <Text text="{i18n>soldToParty}" />
                     </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>customer}" />
+                    </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
                         <Text text="{i18n>salesDocType}" />
                     </Column>
@@ -50,6 +53,7 @@
                             <Text text="{Salesdocument}" />
                             <Text text="{Quantity}" />
                             <Text text="{Soldtoparty}" />
+                            <Text text="{Name1}" />
                             <Text text="{Doctype}" />
                             <Text text="{Plant}" />
                             <Text text="{Material}" />

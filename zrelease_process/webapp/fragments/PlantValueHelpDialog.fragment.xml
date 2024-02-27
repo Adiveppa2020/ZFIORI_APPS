@@ -3,8 +3,8 @@
 	<SelectDialog id="idRPPlantDialog" title="{i18n>plantList}"	items="{/zplant_fuzzSet}"
 		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/Werks')" 
 		cancel=".onValueHelpClose($event, '/filterValues/Werks')"
-		customData:FilterProperty="{prop1: 'Werks', prop2: 'Werks'}"
+		customData:FilterProperty="{prop1: 'Werks', prop2: 'Name1'}"
 		customData:inputId="idPlantInput">
-		<StandardListItem title="{Werks}" />
+		<StandardListItem title="{Werks}" description="{Name1}"/>
 	</SelectDialog>
 </core:FragmentDefinition>

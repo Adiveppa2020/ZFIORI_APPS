@@ -3,8 +3,8 @@
 	<SelectDialog id="idCompanyCodeDialog" title="{i18n>companyCodeList}"	items="{/zcompany_code_srchSet}"
 		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/Bukrs')" 
 		cancel=".onValueHelpClose($event, '/filterValues/Bukrs')"
-		customData:FilterProperty="{prop1: 'Bukrs', prop2: 'Bukrs'}"
+		customData:FilterProperty="{prop1: 'Bukrs', prop2: 'Butxt'}"
 		customData:inputId="idCompanyCodeInput">
-		<StandardListItem title="{Bukrs}" />
+		<StandardListItem title="{Bukrs}" description="{Butxt}"/>
 	</SelectDialog>
 </core:FragmentDefinition>

@@ -3,8 +3,8 @@
 	<SelectDialog id="idSalesOrgDialog" title="{i18n>salesOrgList}"	items="{/zsales_org_srchSet}"
 		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/Vkorg')" 
 		cancel=".onValueHelpClose($event, '/filterValues/Vkorg')"
-		customData:FilterProperty="{prop1: 'Vkorg', prop2: 'Vkorg'}"
+		customData:FilterProperty="{prop1: 'Vkorg', prop2: 'Vtext'}"
 		customData:inputId="idSalesOrgInput">
-		<StandardListItem title="{Vkorg}" />
+		<StandardListItem title="{Vkorg}" description="{Vtext}"/>
 	</SelectDialog>
 </core:FragmentDefinition>

@@ -5,6 +5,6 @@
 		cancel=".onValueHelpClose($event, '/filterValues/faksp')"
 		customData:FilterProperty="{prop1: 'faksp', prop2: 'faksp'}"
 		customData:inputId="idBillingBlockCodeInput">
-		<StandardListItem title="{faksp}"  />
+		<StandardListItem title="{faksp}"  description="{Vtext}"/>
 	</SelectDialog>
 </core:FragmentDefinition>

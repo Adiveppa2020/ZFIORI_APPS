@@ -3,8 +3,8 @@
 	<SelectDialog id="idBlockCodeDialog" title="{i18n>blockCodeList}"	items="{/zblock_code_DelSet}"
 		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/LIFSP')" 
 		cancel=".onValueHelpClose($event, '/filterValues/LIFSP')"
-		customData:FilterProperty="{prop1: 'LIFSP', prop2: 'LIFSP'}"
+		customData:FilterProperty="{prop1: 'LIFSP', prop2: 'Vtext'}"
 		customData:inputId="idBlockCodeInput">
-		<StandardListItem title="{LIFSP}" />
+		<StandardListItem title="{LIFSP}" description="{Vtext}"/>
 	</SelectDialog>
 </core:FragmentDefinition>

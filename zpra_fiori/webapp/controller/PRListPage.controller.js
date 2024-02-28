@@ -23,34 +23,42 @@ sap.ui.define([
 			this.byId("idPRListTable").removeSelections();
 		},
 
-		loadData: async function (param) {
+		getPRListData: function () {
 			this.clearTableSelection();
-			this.releaseCode = param.releaseCode;
 			const aFilter = Utils.getFilterArray([
 				{
 					sPath: "MATNR",
-					sValue: param["?query"].material
+					sValue: this.material
 				},
 				{
 					sPath: "BANFN",
-					sValue: param["?query"].purchaseReqNo
+					sValue: this.purchaseReqNo
 				},
 				{
 					sPath: "WERKS",
-					sValue: param["?query"].plant
+					sValue: this.plant
 				},
 				{
 					sPath: "FRGZU",
-					sValue: param.releaseCode
+					sValue: this.releaseCode
 				},
 				{
 					sPath: "BSART",
-					sValue: param["?query"].docType
+					sValue: this.docType
 				}
 			]);
 			const oView = this.getView();
 			oView.byId("idPRListTable").getBinding("items").filter(aFilter);
 			this.supplyPlant = "";
+		},
+
+		loadData: async function (param) {
+			this.releaseCode = param.releaseCode;
+			this.material = param["?query"].material;
+			this.purchaseReqNo = param["?query"].purchaseReqNo;
+			this.plant = param["?query"].plant;
+			this.docType = param["?query"].docType;
+			this.getPRListData();
 		},
 
 		onDetailsButtonNavToPRdetailsPagePress: function () {
@@ -109,10 +117,10 @@ sap.ui.define([
 			const oView = this.getView();
 			try {
 				const oTable = oView.byId("idPRListTable");
-				const sconfirmMsg = Utils.getI18nText(oView, (sAction === "Accept" ? "mgsConfirmAcceptHead" : "mgsConfirmRejectHead"));
-				await Utils.displayConfirmMessageBox(sconfirmMsg, "Proceed");
+				const sConfirmMsg = Utils.getI18nText(oView, (sAction === "Accept" ? "mgsConfirmAcceptHead" : "mgsConfirmRejectHead"));
+				await Utils.displayConfirmMessageBox(sConfirmMsg, "Proceed");
 				const aSelectedContext = oTable.getSelectedContexts();
-				const oPayload = Utils.getHeadSetUpdatePlayload.call(this, aSelectedContext, this.supplyPlant, sAction, this.releaseCode);
+				const oPayload = Utils.getHeadSetUpdatePayload.call(this, aSelectedContext, this.supplyPlant, sAction, this.releaseCode);
 				oView.setBusy(true);
 				const aResponse = await Utils.updateOdataCallList.call(this, "/ZHeadSet", oPayload);
 				oView.setBusy(false);
@@ -120,7 +128,7 @@ sap.ui.define([
 					const msg = Utils.getI18nText(oView, (sAction === "Accept" ? "msgApproveSuccess" : "msgRejectSuccess"));
 					MessageToast.show(msg);
 				}
-				oTable.getBinding("items").refresh();
+				this.getPRListData();
 			} catch (error) {
 				oView.setBusy(false);
 				if ((typeof error === "object") && !error.popup) {

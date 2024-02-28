@@ -122,8 +122,8 @@ sap.ui.define([
 			const oView = this.getView();
 			try {
 				const oTable = oView.byId("idPRDetailsListTable");
-				const sconfirmMsg = Utils.getI18nText(oView, (sAction === "Accept" ? "mgsConfirmAccept" : "mgsConfirmReject"));
-				await Utils.displayConfirmMessageBox(sconfirmMsg, "Proceed");
+				const sConfirmMsg = Utils.getI18nText(oView, (sAction === "Accept" ? "mgsConfirmAccept" : "mgsConfirmReject"));
+				await Utils.displayConfirmMessageBox(sConfirmMsg, "Proceed");
 				const aContext = oTable.getSelectedContexts();
 				const oLocalModel = this.getOwnerComponent().getModel("localModel");
 				const oPayload = Utils.getLineItemSetUpdatePayload.call(this, aContext, this.supplyPlant, sAction, oLocalModel.getProperty("/HeadDetails"), this.releaseCode);

@@ -161,7 +161,7 @@ sap.ui.define([
             }.bind(this));
         },
 
-        getHeadSetUpdatePlayload: function (aSelectedContext, sSupplyPlant, sAction, releaseCode) {
+        getHeadSetUpdatePayload: function (aSelectedContext, sSupplyPlant, sAction, releaseCode) {
             const oView = this.getView();
             const aPayload = [];
             if (aSelectedContext && aSelectedContext.length > 0) {

@@ -20,6 +20,22 @@ sap.ui.define([
                 message: message
             };
         }
+        sInputValue = oView.byId("idCompanyCodeInput").getValue();
+        if (!sInputValue && (sType === "DB" || sType === "BB")) {
+            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "companyCode"));
+            return {
+                error: true,
+                message: message
+            };
+        }
+        sInputValue = oView.byId("idSalesOrgInput").getValue();
+        if (!sInputValue && (sType === "DB" || sType === "BB")) {
+            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "salseOrg"));
+            return {
+                error: true,
+                message: message
+            };
+        }
         return { error: false };
     }
 
@@ -43,7 +59,7 @@ sap.ui.define([
                     {
                         method: "POST",
                         groupId: "GID",
-                        changeSetId: "changeSetId" +  this.changeSetId,
+                        changeSetId: "changeSetId" + this.changeSetId,
                         success: function (oData) {
                             resolve(oData);
                         },

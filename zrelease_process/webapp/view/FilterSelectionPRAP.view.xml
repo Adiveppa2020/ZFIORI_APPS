@@ -19,7 +19,8 @@
                     </RadioButtonGroup>
 
                     <Label text="{i18n>companyCode}" labelFor="idCompanyCodeInput"
-                        visible="{localModel>/visibleDeliverySelection}"/>
+                        visible="{localModel>/visibleDeliverySelection}"
+                        required="true"/>
                     <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
                         id="idCompanyCodeInput" customData:dialogName="CompanyCodeValueHelpDialog"
                         customData:FilterProperty="{prop1: 'Bukrs', prop2: 'Bukrs'}"
@@ -29,7 +30,8 @@
                     </Input>
 
                     <Label text="{i18n>salseOrg}" labelFor="idSalesOrgInput"
-                        visible="{localModel>/visibleDeliverySelection}"/>
+                        visible="{localModel>/visibleDeliverySelection}"
+                        required="true"/>
                     <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
                         id="idSalesOrgInput" customData:dialogName="SalesOrgValueHelpDialog"
                         customData:FilterProperty="{prop1: 'Vkorg', prop2: 'Vkorg'}"

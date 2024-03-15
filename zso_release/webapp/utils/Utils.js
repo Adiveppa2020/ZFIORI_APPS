@@ -11,15 +11,15 @@ sap.ui.define([
     }
 
     function checkInputValue(oView) {
-        let sInputValue = oView.byId("idCreatedOnDateRangeSO").getFrom();
-        let message = "";
-        if (!sInputValue) {
-            message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "createdOn"));
-            return {
-                error: true,
-                message: message
-            };
-        }
+        // let sInputValue = oView.byId("idCreatedOnDateRangeSO").getFrom();
+        // let message = "";
+        // if (!sInputValue) {
+        //     message = getI18nText(oView, "messageMandatoryField", getI18nText(oView, "createdOn"));
+        //     return {
+        //         error: true,
+        //         message: message
+        //     };
+        // }
         return { error: false };
     }
 

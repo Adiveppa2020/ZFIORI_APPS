@@ -24,6 +24,9 @@
                     <Column>
                         <Text text="{i18n>materials}" />
                     </Column>
+                    <Column minScreenWidth="Phone">
+                        <Text text="{i18n>descriptionCol}" maxLines="2"/>
+                    </Column>
                     <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>prNo}" />
                     </Column>
@@ -41,6 +44,7 @@
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
                         <cells>
                             <Text text="{MATNR}" />
+                            <Text text="{MAKTX}" maxLines="2"/>
                             <Text text="{BANFN}" />
                             <Text text="{WERKS}" />
                             <Input value="{A_MENGE}" change="onChangeApprovedQty($event,'/A_MENGE')"/>

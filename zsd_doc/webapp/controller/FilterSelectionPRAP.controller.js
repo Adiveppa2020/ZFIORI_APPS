@@ -25,7 +25,7 @@ sap.ui.define([
             },
 
             getCreatedOnFilterDate: function () {
-                function addZero (iMonth) {
+                function addZero(iMonth) {
                     if (iMonth < 10) {
                         return "0" + iMonth;
                     }
@@ -33,7 +33,7 @@ sap.ui.define([
                 }
                 const oFromDate = this.byId("idCreatedOnDateRange").getFrom();
                 const oToDate = this.byId("idCreatedOnDateRange").getTo();
-                const oDateRange = {from: "", to: ""};
+                const oDateRange = { from: "", to: "" };
                 if (oFromDate && oToDate) {
                     let yyyy = oFromDate.getFullYear();
                     oDateRange.from = yyyy.toString() + addZero(oFromDate.getMonth() + 1) + addZero(oFromDate.getDate());
@@ -51,13 +51,14 @@ sap.ui.define([
             onSearchButtonNavToListPress: function () {
                 if (Utils.checkMandatoryParams.call(this)) {
                     const oView = this.getView();
-                    const sSalesDoc = oView.byId("idSalesDocumentInput").getValue();
                     const oDateRange = this.getCreatedOnFilterDate();
                     this.getRouter().navTo("detailslistpage", {
                         salesDocument: "SD",
                         "?query": {
                             createdBy: oView.byId("idCreatedByInput").getValue(),
-                            salesDocument: sSalesDoc,
+                            salesDocument: oView.byId("idSalesDocumentInput").getValue(),
+                            creditAccount: oView.byId("idCreditAccountInput").getValue(),
+                            creditRepGrp: oView.byId("idCreditRepresentativeInput").getValue(),
                             fromDate: oDateRange.from,
                             toDate: oDateRange.to
                         }

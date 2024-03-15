@@ -29,6 +29,21 @@
                         <Text text="{i18n>deliveryBlock}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
+                        <Text text="{i18n>spp}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
+                        <Text text="{i18n>discountPer}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
+                        <Text text="{i18n>discountAmt}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
+                        <Text text="{i18n>netUnitPrice}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
+                        <Text text="{i18n>netPriceAfterDis}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
                         <Text text="{i18n>customer}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
@@ -49,15 +64,6 @@
                     <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>distrChannel}" />
                     </Column>
-                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>item}" />
-                    </Column>
-                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>desc}" />
-                    </Column>
-                    <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>amount}" />
-                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
@@ -65,6 +71,12 @@
                             <Text text="{Vbeln}"  maxLines="2"/>
                             <Text text="{Kwmeng}"  maxLines="2"/>
                             <Text text="{Lifsp}"  maxLines="2"/>
+                            <Text text="{Zspp}"  maxLines="2"/>
+                            <Text text="{k005}"  maxLines="2"/>
+                            <Text text="{DisV}"  maxLines="2"/>
+                            <Text text="{Pr00}"  maxLines="2"/>
+                            <Text text="{Pr01}"  maxLines="2"/>
+
                             <Text text="{Kunnr}"  maxLines="2"/>
                             <Text text="{PName}" maxLines="2"/>
                             <Text text="{Matnr}"  maxLines="2"/>
@@ -72,9 +84,6 @@
                             <Text text="{path: 'Audat', formatter:'.dateConversion'}" />
                             <Text text="{Vkorg}"  maxLines="2"/>
                             <Text text="{Vtweg}"  maxLines="2"/>
-                            <Text text="{Posnr}"  maxLines="2"/>
-                            <Text text="{Maktx}" maxLines="2" />
-                            <Text text="{Zcds}"  maxLines="2"/>
                         </cells>
                     </ColumnListItem>
                 </items>

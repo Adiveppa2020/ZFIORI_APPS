@@ -41,6 +41,9 @@
                         <Text text="{i18n>material}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>materialDesc}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>createdBy}" />
                     </Column>
                     <Column minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
@@ -53,10 +56,11 @@
                             <Text text="{Salesdocument}" />
                             <Text text="{Quantity}" />
                             <Text text="{Soldtoparty}" />
-                            <Text text="{Name1}" />
+                            <Text text="{Name1}" maxLines="2"/>
                             <Text text="{Doctype}" />
                             <Text text="{Plant}" />
                             <Text text="{Material}" />
+                            <Text text="{MaterialDesc}" maxLines="2"/>
                             <Text text="{CreatedBy}" />
                             <Text text="{path: 'Createdon', formatter:'.dateConversion'}" />
                         </cells>

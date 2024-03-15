@@ -35,6 +35,14 @@ sap.ui.define([
 				{
 					sPath: "Ernam",
 					sValue: param["?query"].createdBy
+				},
+				{
+					sPath: "Sbgrp",
+					sValue: param["?query"].creditRepGrp
+				},
+				{
+					sPath: "Knkli",
+					sValue: param["?query"].creditAccount
 				}
 			]);
 			const oDateFilter = Utils.getDateFilter({

@@ -29,7 +29,7 @@
                         <Text text="{i18n>salesDate}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>plantName}" />
+                        <Text text="{i18n>customerName}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>CredLimitUsedPC}" />
@@ -46,6 +46,12 @@
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>Receivables}" />
                     </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>creditAccount}" />
+                    </Column>
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
+                        <Text text="{i18n>creditRepresentative}" />
+                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem vAlign="Middle" id="idColumnListItem">
@@ -53,12 +59,14 @@
                             <Text text="{Vbeln}" />
                             <Text text="{Ernam}" />
                             <Text text="{path: 'Erdat', formatter:'.dateConversion'}" />
-                            <Text text="{Name1}" />
+                            <Text text="{Name1}" maxLines="2"/>
                             <Text text="{Klprz}" />
                             <Text text="{Kwkkc}" />
                             <Text text="{Klimk}" />
                             <Text text="{Zterm}" />
                             <Text text="{Skfor}" />
+                            <Text text="{Knkli}" />
+                            <Text text="{Sbgrp}" />
                         </cells>
                     </ColumnListItem>
                 </items>

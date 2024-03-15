@@ -21,7 +21,10 @@
                 </headerToolbar>
                 <columns>
                     <Column minScreenWidth="Phone">
-                        <Text text="{i18n>materials}" />
+                        <Text text="{i18n>material}" />
+                    </Column>
+                    <Column	minScreenWidth="Phone">
+                        <Text text="{i18n>descriptionCol}" maxLines="2"/>
                     </Column>
                     <Column	minScreenWidth="Phone">
                         <Text text="{i18n>prNo}" />
@@ -29,7 +32,7 @@
                     <Column minScreenWidth="Phone">
                         <Text text="{i18n>approvedQty}" />
                     </Column>
-                    <Column	minScreenWidth="Phone">
+                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>supplyPlant}" />
                     </Column>
                     <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
@@ -39,7 +42,7 @@
                         <Text text="{i18n>purchaseReqItem}" />
                     </Column>
                     <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
-                        <Text text="{i18n>reqPlant}" />
+                        <Text text="{i18n>reqPlant}" maxLines="2"/>
                     </Column>
                     <Column  minScreenWidth="Desktop" demandPopin="true" class="displayFlex">
                         <Text text="{i18n>reqPlantName}" />
@@ -55,6 +58,7 @@
                     <ColumnListItem vAlign="Middle" >
                         <cells>
                             <Text text="{localModel>MATNR}" />
+                            <Text text="{localModel>MAKTX}" maxLines="2"/>
                             <Text text="{localModel>BANFN}" />
                             <Input value="{localModel>A_MENGE}" change="onChangeApprovedQty($event,'/A_MENGE')"/>
                             <Input value="{localModel>RESWK}" change="onChangeApprovedQty($event,'/RESWK')"/>
@@ -64,7 +68,7 @@
                             <!-- Purchase Req Item  -->
                             <Text text="{localModel>WERKS}"/>
                             <!-- Req Plant -->
-                            <Text text="{localModel>R_PLANT}"/>
+                            <Text text="{localModel>R_PLANT}" maxLines="2"/>
                             <!-- Req Plant Name -->
                             <Text text="{path: 'localModel>BADAT', formatter:'.dateConversion'}"/>
                             <!-- PR Date  -->

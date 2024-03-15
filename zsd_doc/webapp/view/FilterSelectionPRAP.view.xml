@@ -25,7 +25,22 @@
                         customData:FilterProperty="{prop1: 'Bname', prop2: 'NameText'}"
                         value="{localData>/filterValues/Ernam}"
                         change="onChangeInputValue($event, '/filterValues/Ernam')"/>
-                    <Label text="{i18n>createdOn}" required="true" />
+
+                    <Label text="{i18n>creditAccount}" />
+                    <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        id="idCreditAccountInput" customData:dialogName="CreditAccountValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'Kunnr', prop2: 'Name1'}"
+                        value="{localData>/filterValues/Kunnr}"
+                        change="onChangeInputValue($event, '/filterValues/Kunnr')"/>
+
+                    <Label text="{i18n>creditRepresentative}" />
+                    <Input showValueHelp="true" valueHelpRequest="onInputCommonValueHelpRequest"
+                        id="idCreditRepresentativeInput" customData:dialogName="CreditRepresentativeValueHelpDialog"
+                        customData:FilterProperty="{prop1: 'SBGRP', prop2: 'STEXT'}"
+                        value="{localData>/filterValues/SBGRP}"
+                        change="onChangeInputValue($event, '/filterValues/SBGRP')"/>
+
+                    <Label text="{i18n>createdOn}" />
                     <DateRangeSelection id="idCreatedOnDateRange" />
 
                 </f:content>

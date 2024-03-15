@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<SelectDialog id="idCreditRepresentativeDialog" title="{i18n>creditRepresentativeList}"	
+		items="{/Credit_rep_groupSet}"
+		search=".onValueHelpSearch"	confirm=".onValueHelpClose($event, '/filterValues/SBGRP')" 
+		cancel=".onValueHelpClose($event, '/filterValues/SBGRP')"
+		customData:FilterProperty="{prop1: 'SBGRP', prop2: 'STEXT'}"
+		customData:inputId="idCreditRepresentativeInput">
+		<StandardListItem title="{SBGRP}" description="{STEXT}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

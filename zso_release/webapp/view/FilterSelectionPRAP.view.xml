@@ -34,7 +34,7 @@
                         value="{localData>/filterValues/Ernam}"
                         change="onChangeInputValue($event, '/filterValues/Ernam')"/>
 
-                    <Label text="{i18n>createdOn}" required="true" />
+                    <Label text="{i18n>createdOn}" />
                     <DateRangeSelection id="idCreatedOnDateRangeSO" />
 
                 </f:content>

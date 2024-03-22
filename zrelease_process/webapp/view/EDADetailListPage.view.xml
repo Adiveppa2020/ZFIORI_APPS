@@ -9,7 +9,7 @@
                 sticky="ColumnHeaders,HeaderToolbar" growing="true" growingThreshold="20"
                 growingScrollToLoad="true"
                 selectionChange="onSelectPRList" updateFinished="updateFinishedTable" 
-                class="displayFlex"> 
+                class="displayFlex" fixedLayout="false"> 
                 <headerToolbar>
                     <OverflowToolbar>
                         <content>

@@ -31,7 +31,7 @@
                     <Column minScreenWidth="Phone">
                         <Text text="{i18n>customer}" />
                     </Column>
-                    <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
+                    <Column width="12rem"	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
                         <Text text="{i18n>desc}" />
                     </Column>
                     <Column	minScreenWidth="Desktop" demandPopin="true" class="displayFlex"> 
@@ -63,7 +63,7 @@
                             <Text text="{Faksp}"  maxLines="2" />
                             <Text text="{Posnr}"  maxLines="2" />
                             <Text text="{Kunnr}"  maxLines="2" />
-                            <Text text="{Maktx}"  maxLines="2" />
+                            <Text text="{Maktx}"  />
                             <Text text="{Vtweg}"  maxLines="2" />
                             <Text text="{Werks}"  maxLines="2" />
                             <Text text="{Matnr}"  maxLines="2" />
